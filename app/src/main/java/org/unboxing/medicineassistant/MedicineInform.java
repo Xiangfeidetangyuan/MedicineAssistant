@@ -27,14 +27,6 @@ public class MedicineInform extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_inform);
 
-        //复制数据库
-        String path = this.getFilesDir().getAbsolutePath();
-        String rootpath = path.substring(0, path.lastIndexOf("/"));
-        String datapath = rootpath + "/" + "databases";
-        System.out.println("路：" + datapath);
-        String name = "medicine_db";
-        CopyDateBaseFile.copy(this, name, datapath, name);
-
         //设置提醒页面的跳转
         Button btn1=(Button) findViewById(R.id.infrom_control);
         //给btn1绑定监听事件
