@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetInform">
+
+    <TextView
+        android:id="@+id/infrom_name_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+    <TextView
+        android:id="@+id/infrom_context_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/repeation"/>
+
+    <EditText
+        android:id="@+id/timeedit1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="time" />
+
+    <EditText
+        android:id="@+id/timeedit2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="time" />
+
+    <EditText
+        android:id="@+id/timeedit3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="time" />
+
+    <Button
+        android:id="@+id/setInfrombutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="确定" />
+
+
+</LinearLayout>
