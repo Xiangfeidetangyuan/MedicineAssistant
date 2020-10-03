@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-
+import org.unboxing.medicineassistant.activity.ListAllActivity;
 
 
 public class MedicineInform extends AppCompatActivity {
@@ -35,7 +35,6 @@ public class MedicineInform extends AppCompatActivity {
         String name = "medicine_db";
         CopyDateBaseFile.copy(this, name, datapath, name);
 
-
         //设置提醒页面的跳转
         Button btn1=(Button) findViewById(R.id.infrom_control);
         //给btn1绑定监听事件
@@ -47,6 +46,14 @@ public class MedicineInform extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button query=(Button) findViewById(R.id.query);
+        query.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                Intent intent=new Intent(MedicineInform.this, ListAllActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
     }

@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/queiry"
+        android:id="@+id/query"
         android:layout_width="195dp"
         android:layout_height="71dp"
         android:gravity="center"

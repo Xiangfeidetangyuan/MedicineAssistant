@@ -28,6 +28,8 @@
         <activity android:name=".InformList" />
         <activity android:name=".InformControl" />
         <activity android:name=".SetInform" />
+        <activity android:name=".activity.ListAllActivity" />
+        <activity android:name=".activity.ShowItemActivity" />
     </application>
 
 </manifest>

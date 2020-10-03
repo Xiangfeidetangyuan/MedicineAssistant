@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.ListAllActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center">
+
+        <SearchView
+            android:id="@+id/sv"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:queryBackground="@null"
+            android:searchIcon="@null"
+            android:showDividers="none"
+            android:submitBackground="@null"
+            android:background="@drawable/searchview_line"
+            android:layout_gravity="center"></SearchView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="375dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/listall_circle"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/listView_medicine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
+
+    </LinearLayout>
+
+
+</LinearLayout>
