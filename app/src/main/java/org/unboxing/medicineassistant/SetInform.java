@@ -42,8 +42,11 @@ public class SetInform extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_inform);
         informdao = new InformDao(this);
-        Intent i=getIntent();
-        this.userName =i.getStringExtra("userName");
+        Intent intent=getIntent();
+//        Bundle bundle = i.getExtras();
+//        bundle.getString("extras",default)
+        this.userName =intent.getStringExtra("userName");
+
 
         //获取传入的medicine对象
         medicinedemo = (medicine) getIntent().getSerializableExtra("Medicine");

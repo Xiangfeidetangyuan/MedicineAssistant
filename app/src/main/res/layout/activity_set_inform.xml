@@ -10,12 +10,19 @@
         android:id="@+id/infrom_name_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:inputType="text"
+        android:hint="药名"
+        android:text="喝药"/>
+
     <EditText
         android:id="@+id/infrom_context_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:inputType="text"
+        android:hint="提醒"
+        android:text="一天3次"
+        />
+
 
     <Spinner
         android:id="@+id/spinner"
@@ -27,19 +34,23 @@
         android:id="@+id/timeedit1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="time" />
+        android:inputType="time"
+        android:text="8:30"
+        />
 
     <EditText
         android:id="@+id/timeedit2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="time" />
+        android:inputType="time"
+        android:text="12:30"/>
 
     <EditText
         android:id="@+id/timeedit3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="time" />
+        android:inputType="time"
+        android:text="19:30"/>
 
     <Button
         android:id="@+id/setInfrombutton"

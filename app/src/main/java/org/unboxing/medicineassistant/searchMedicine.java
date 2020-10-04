@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -30,6 +32,8 @@ public class searchMedicine extends AppCompatActivity {
     private  ListAllAdapter adapter;
     private MedicineDao me;
     private String userName; //用户名
+    private Button notfindmedicine_button;
+    private List<medicine> medicinelist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +45,10 @@ public class searchMedicine extends AppCompatActivity {
         mSearchView= (SearchView)findViewById(R.id.search_view);
         mListView =(ListView)findViewById(R.id.adapter_listview);
         me = new MedicineDao(this);
-        final List<medicine> medicinelist = me.listMedicine();
+        medicinelist = me.listMedicine();
+        notfindmedicine_button=(Button) findViewById(R.id.notfindmedicine_textview);
+        notfindmedicine_button.setVisibility(View.INVISIBLE);//默认隐藏
+
 
         ArrayList<String> li = new ArrayList<>();
         for(medicine item:medicinelist){
@@ -53,6 +60,9 @@ public class searchMedicine extends AppCompatActivity {
         adapter = new ListAllAdapter(this,R.layout.medicine_item,li,userName);
         mListView.setAdapter(adapter);
         mListView.setTextFilterEnabled(true);
+
+
+
 
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             // 当点击搜索按钮时触发该方法
@@ -68,27 +78,38 @@ public class searchMedicine extends AppCompatActivity {
                     intent.putExtra("userName",userName);
                     startActivity(intent);
                 }else{
-                    Toast.makeText(searchMedicine.this, "当前搜索不存在", Toast.LENGTH_SHORT).show();
+                    notfindmedicine_button.setVisibility(View.VISIBLE);
+
+
                 }
                 return false;
             }
+
             // 当搜索内容改变时触发该方法
             @Override
             public boolean onQueryTextChange(String newText) {
                 if (!TextUtils.isEmpty(newText)){
-                    adapter.getFilter().filter(newText.toString());
+                    adapter.getFilter().filter(newText);
                 }else{
+
                     mListView.clearTextFilter();
-                    adapter.getFilter().filter("");
+
+                    adapter.getFilter().filter(newText);
                 }
                 return false;
             }
         });
 
+        notfindmedicine_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(searchMedicine.this,DiyInform.class);
+                intent.putExtra("userName",userName);
+                startActivity(intent);
+            }
 
+        });
 
     }
-    public String getUserName() {
-        return userName;
-    }
+
 }
