@@ -29,7 +29,7 @@ public abstract class IInformDao {
      *
      * @return
      */
-    abstract List<Inform> listInform();
+    abstract List<Inform> listInform(String username);
 
     /**
      *设置提醒状态

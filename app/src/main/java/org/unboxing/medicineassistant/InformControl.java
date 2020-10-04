@@ -8,11 +8,14 @@ import android.view.View;
 import android.widget.Button;
 
 public class InformControl extends AppCompatActivity {
-
+    private String userName; //用户名
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inform_control);
+
+        Intent i=getIntent();
+        this.userName =i.getStringExtra("userName");
 
         //设置提醒页面的跳转
         Button btn1=(Button) findViewById(R.id.setInfrom);
@@ -21,6 +24,7 @@ public class InformControl extends AppCompatActivity {
             public void onClick(View v) {
                 // 给bnt1添加点击响应事件
                 Intent intent=new Intent(InformControl.this,searchMedicine.class);
+                intent.putExtra("userName",userName);
                 //启动
                 startActivity(intent);
             }
@@ -33,6 +37,7 @@ public class InformControl extends AppCompatActivity {
             public void onClick(View v) {
                 // 给bnt2添加点击响应事件
                 Intent intent=new Intent(InformControl.this, InformList.class);
+                intent.putExtra("userName",userName);
                 //启动
                 startActivity(intent);
             }

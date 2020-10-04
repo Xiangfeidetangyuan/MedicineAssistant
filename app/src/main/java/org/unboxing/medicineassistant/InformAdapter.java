@@ -29,11 +29,13 @@ public class InformAdapter extends ArrayAdapter<Inform>
 
     {
         private static final String TAG ="dao" ;
+        private String userName; //用户名
         InformDao informdao = new InformDao(getContext());
         private int resourceID;
-    public InformAdapter(Context context, int resource, List<Inform> objects) {
+    public InformAdapter(Context context, int resource, List<Inform> objects,String username) {
         super(context, resource,objects);
         resourceID=resource;
+        userName=username;
 
     }
         public View getView(int position , View  convertView, ViewGroup parent){

@@ -18,7 +18,7 @@ public class MedicineInform extends AppCompatActivity {
 
 
     private static final String TAG = "ceshi";
-    private String userName;
+    private String userName; //用户名
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +34,13 @@ public class MedicineInform extends AppCompatActivity {
             public void onClick(View v) {
                 // 给bnt1添加点击响应事件
                 Intent intent=new Intent(MedicineInform.this,InformControl.class);
+                intent.putExtra("userName",userName);
                 //启动
                 startActivity(intent);
             }
         });
+
+        //
         Button query=(Button) findViewById(R.id.query);
         query.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {

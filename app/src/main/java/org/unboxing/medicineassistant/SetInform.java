@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -31,21 +32,25 @@ import java.util.TimeZone;
 public class SetInform extends AppCompatActivity {
 
     private static final String TAG = "Setinform";
-    public static final int PERMISSION_RESULT_CODE = 1;
+    private static final int PERMISSION_RESULT_CODE = 1;
+    private InformDao informdao;
+    private medicine medicinedemo;
+    private String userName; //用户名
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_inform);
-        final InformDao informdao = new InformDao(this);
-
+        informdao = new InformDao(this);
+        Intent i=getIntent();
+        this.userName =i.getStringExtra("userName");
 
         //获取传入的medicine对象
-        final medicine medicinedemo = (medicine) getIntent().getSerializableExtra("Medicine");
+        medicinedemo = (medicine) getIntent().getSerializableExtra("Medicine");
 
         //获取实例
-        TextView informName = (TextView) findViewById(R.id.infrom_name_textview);
-        TextView informContext = (TextView) findViewById(R.id.infrom_context_textview);
+        final EditText informName = (EditText) findViewById(R.id.infrom_name_textview);
+        final EditText informContext = (EditText) findViewById(R.id.infrom_context_textview);
         final EditText timeedit1 = (EditText) findViewById(R.id.timeedit1);
         final EditText timeedit2 = (EditText) findViewById(R.id.timeedit2);
         final EditText timeedit3 = (EditText) findViewById(R.id.timeedit3);
@@ -77,7 +82,7 @@ public class SetInform extends AppCompatActivity {
                 Log.d(TAG, "重复" + (int)(spinner.getSelectedItemId() + 1) + "");
                 int hour1 = Integer.parseInt(timeedit1.getText().toString().substring(0, timeedit1.getText().toString().indexOf(":")));
                 int minute1 = Integer.parseInt(timeedit1.getText().toString().substring(timeedit1.getText().toString().indexOf(":") + 1));
-                long informid1=SetSure_inform(hour1, minute1,medicinedemo.getName(),medicinedemo.getDescription(), ((int) spinner.getSelectedItemId()) + 1);
+                long informid1=SetSure_inform(hour1, minute1,informName.getText().toString(),informContext.getText().toString(), ((int) spinner.getSelectedItemId()) + 1);
                 int hour3 = Integer.parseInt(timeedit3.getText().toString().substring(0, timeedit3.getText().toString().indexOf(":")));
                 int minute3 = Integer.parseInt(timeedit3.getText().toString().substring(timeedit3.getText().toString().indexOf(":") + 1));
                 // status, int informid, String username, String content, int hour, int ,minute,title，begindate,enddate
@@ -90,21 +95,21 @@ public class SetInform extends AppCompatActivity {
                 long end = begindate.getTime();
                 Log.d(TAG, begindate.getDate()+":");
 
-                Inform inform1 = new Inform(1, informid1, "1", medicinedemo.getDescription(), hour1, minute1, medicinedemo.getName(),begin,end);
+                Inform inform1 = new Inform(1, informid1, userName, informContext.getText().toString(), hour1, minute1, informName.getText().toString(),begin,end);
 
                 Log.d(TAG, "--" + hour1 + "--" + minute1 + "--" + hour3 + "--" + minute3);
                 Log.d(TAG,inform1.getTitle()+";"+inform1.getContent());
                 informdao.addInform(inform1);
 
-                long informid3=SetSure_inform(hour3, minute3,medicinedemo.getName(),medicinedemo.getDescription(), ((int) spinner.getSelectedItemId()) + 1);
-                Inform inform3 = new Inform(1, informid3, "1", medicinedemo.getDescription(), hour3, minute3, medicinedemo.getName(),begin,end);
+                long informid3=SetSure_inform(hour3, minute3,informName.getText().toString(),informContext.getText().toString(), ((int) spinner.getSelectedItemId()) + 1);
+                Inform inform3 = new Inform(1, informid3, userName, informContext.getText().toString(), hour3, minute3, informName.getText().toString(),begin,end);
                 informdao.addInform(inform3);
 
                 if (medicinedemo.getDose() == 3) {
                     int hour2 = Integer.parseInt(timeedit2.getText().toString().substring(0, timeedit2.getText().toString().indexOf(":")));
                     int minute2 = Integer.parseInt(timeedit2.getText().toString().substring(timeedit2.getText().toString().indexOf(":") + 1));
-                    long informid2=SetSure_inform(hour2, minute2,medicinedemo.getName(),medicinedemo.getDescription(), ((int) spinner.getSelectedItemId()) + 1);
-                    Inform inform2 = new Inform(1, informid2, "1", medicinedemo.getDescription(), hour2, minute2, medicinedemo.getName(),begin,end);
+                    long informid2=SetSure_inform(hour2, minute2,informName.getText().toString(),informContext.getText().toString(), ((int) spinner.getSelectedItemId()) + 1);
+                    Inform inform2 = new Inform(1, informid2, userName, informContext.getText().toString(), hour2, minute2, informName.getText().toString(),begin,end);
                     informdao.addInform(inform2);
                 }
                 finish();

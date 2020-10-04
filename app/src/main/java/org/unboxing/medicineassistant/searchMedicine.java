@@ -29,10 +29,14 @@ public class searchMedicine extends AppCompatActivity {
     private ListView mListView;
     private  ListAllAdapter adapter;
     private MedicineDao me;
+    private String userName; //用户名
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_medicine);
+        Intent i=getIntent();
+        this.userName =i.getStringExtra("userName");
 
         mSearchView= (SearchView)findViewById(R.id.search_view);
         mListView =(ListView)findViewById(R.id.adapter_listview);
@@ -46,26 +50,9 @@ public class searchMedicine extends AppCompatActivity {
         }
 
         Collections.sort(li,CHINA_COMPARE);
-        adapter = new ListAllAdapter(this,R.layout.medicine_item,li);
-
+        adapter = new ListAllAdapter(this,R.layout.medicine_item,li,userName);
         mListView.setAdapter(adapter);
-       // mListView.setAdapter(medicineadapter);
         mListView.setTextFilterEnabled(true);
-
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                medicine medicinedemo = (medicine) parent.getItemAtPosition(position);
-                Intent intent=new Intent(searchMedicine.this,SetInform.class);
-                Bundle bundle=new Bundle();
-                bundle.putSerializable("Medicine",medicinedemo);
-                intent.putExtras(bundle);
-                startActivity(intent);
-
-            }
-        });
-
 
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             // 当点击搜索按钮时触发该方法
@@ -73,13 +60,12 @@ public class searchMedicine extends AppCompatActivity {
             public boolean onQueryTextSubmit(String query) {
                 if(checkMap.get(query)!=null){
                     String tempName = checkMap.get(query).getName();
-
                     Intent intent = new Intent(searchMedicine.this, SetInform.class);
-                    //intent.putExtra("medicine_name",tempName);
                     medicine medicinedemo = me.getmedicinebyname(tempName);
                     Bundle bundle=new Bundle();
                     bundle.putSerializable("Medicine",medicinedemo);
                     intent.putExtras(bundle);
+                    intent.putExtra("userName",userName);
                     startActivity(intent);
                 }else{
                     Toast.makeText(searchMedicine.this, "当前搜索不存在", Toast.LENGTH_SHORT).show();
@@ -91,7 +77,6 @@ public class searchMedicine extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
                 if (!TextUtils.isEmpty(newText)){
                     adapter.getFilter().filter(newText.toString());
-                    //listView.setFilterText(newText);
                 }else{
                     mListView.clearTextFilter();
                     adapter.getFilter().filter("");
@@ -100,5 +85,10 @@ public class searchMedicine extends AppCompatActivity {
             }
         });
 
+
+
+    }
+    public String getUserName() {
+        return userName;
     }
 }

@@ -64,10 +64,10 @@ public class InformDao extends IInformDao {
     }
 
     @Override
-   public List<Inform> listInform() {
+   public List<Inform> listInform(String username) {
         SQLiteDatabase readableDataBase =mInformDataBaseHelper.getReadableDatabase();
         //查询全部数据
-        Cursor cursor =readableDataBase.query(InformDataBaseHelper.TABLE_NAME_INFROM,null,null,null,null,null,null,null);
+        Cursor cursor =readableDataBase.query(InformDataBaseHelper.TABLE_NAME_INFROM,null,InformDataBaseHelper.USERNAME+" LIKE ? ",new String[]{"%"+username+"%"},null,null,null);
         List<Inform> list = new ArrayList<>();
         if(cursor.getCount() > 0)
         {
@@ -82,8 +82,8 @@ public class InformDao extends IInformDao {
                 long informid=cursor.getInt(cursor.getColumnIndex(InformDataBaseHelper.INFORMID));
                 inform.setInformid(informid);
 
-                String username=cursor.getString(cursor.getColumnIndex(InformDataBaseHelper.USERNAME));
-                inform.setUsername(username);
+                String username2=cursor.getString(cursor.getColumnIndex(InformDataBaseHelper.USERNAME));
+                inform.setUsername(username2);
 
                 String content=cursor.getString(cursor.getColumnIndex(InformDataBaseHelper.CONTENT));
                 inform.setContent(content);
