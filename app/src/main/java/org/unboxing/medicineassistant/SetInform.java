@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 
 import org.unboxing.medicineassistant.DAO.InformDao;
@@ -36,6 +37,12 @@ public class SetInform extends AppCompatActivity {
     private InformDao informdao;
     private medicine medicinedemo;
     private String userName; //用户名
+    private TimePicker timePicker1;
+    private TimePicker timePicker2;
+    private TimePicker timePicker3;
+    private EditText informName;
+    private EditText informContext;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,25 +59,36 @@ public class SetInform extends AppCompatActivity {
         medicinedemo = (medicine) getIntent().getSerializableExtra("Medicine");
 
         //获取实例
-        final EditText informName = (EditText) findViewById(R.id.infrom_name_textview);
-        final EditText informContext = (EditText) findViewById(R.id.infrom_context_textview);
-        final EditText timeedit1 = (EditText) findViewById(R.id.timeedit1);
-        final EditText timeedit2 = (EditText) findViewById(R.id.timeedit2);
-        final EditText timeedit3 = (EditText) findViewById(R.id.timeedit3);
-        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        informName = (EditText) findViewById(R.id.infrom_name_textview);
+        informContext = (EditText) findViewById(R.id.infrom_context_textview);
+        spinner = (Spinner) findViewById(R.id.spinner);
+
+        timePicker1 = (TimePicker)findViewById(R.id.timepicker1);
+        timePicker2 = (TimePicker)findViewById(R.id.timepicker2);
+        timePicker3 = (TimePicker)findViewById(R.id.timepicker3);
+        timePicker1.setDescendantFocusability(TimePicker.FOCUS_BLOCK_DESCENDANTS);//设置点击事件不弹键盘
+        timePicker1.setHour(8);
+        timePicker1.setIs24HourView(true);
+        timePicker1.setMinute(30);
+
+
+        timePicker3.setIs24HourView(true);
+        timePicker3.setHour(19);
+        timePicker3.setMinute(30);
 
 
         informName.setText(medicinedemo.getName());
         informContext.setText(medicinedemo.getDescription() +" 一天"+ medicinedemo.getDose()+"次");
         spinner.setSelection(medicinedemo.getRepeation() - 1);
-        timeedit1.setText("8:30");
-        timeedit3.setText("19:30");
+
 
         switch (medicinedemo.getDose()) {
             case 2:
-                timeedit2.setVisibility(View.INVISIBLE);
+                timePicker2.setVisibility(View.INVISIBLE);
             case 3:
-                timeedit2.setText("12:30");
+                timePicker2.setIs24HourView(true);
+                timePicker2.setHour(12);
+                timePicker2.setMinute(30);
                 break;
             default:
                 break;
@@ -82,37 +100,34 @@ public class SetInform extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.M)
             public void onClick(View v) {
                 initClock();
-                Log.d(TAG, "重复" + (int)(spinner.getSelectedItemId() + 1) + "");
-                int hour1 = Integer.parseInt(timeedit1.getText().toString().substring(0, timeedit1.getText().toString().indexOf(":")));
-                int minute1 = Integer.parseInt(timeedit1.getText().toString().substring(timeedit1.getText().toString().indexOf(":") + 1));
-                long informid1=SetSure_inform(hour1, minute1,informName.getText().toString(),informContext.getText().toString(), ((int) spinner.getSelectedItemId()) + 1);
-                int hour3 = Integer.parseInt(timeedit3.getText().toString().substring(0, timeedit3.getText().toString().indexOf(":")));
-                int minute3 = Integer.parseInt(timeedit3.getText().toString().substring(timeedit3.getText().toString().indexOf(":") + 1));
+                Log.d(TAG, "重复" + (int)(spinner.getSelectedItemId() + 1) + "时间："+timePicker1.getHour()+ timePicker1.getMinute());
+
+                long informid1=SetSure_inform(timePicker1.getHour(), timePicker1.getMinute(),informName.getText().toString(),informContext.getText().toString(), ((int) spinner.getSelectedItemId()) + 1);
+
                 // status, int informid, String username, String content, int hour, int ,minute,title，begindate,enddate
                 Date begindate =new Date();
                 long begin = begindate.getTime();
                 Log.d(TAG, begindate.getDate()+":");
-                begindate.setHours(hour3);
-                begindate.setMinutes(minute3);
+                begindate.setHours(timePicker1.getHour());
+                begindate.setMinutes(timePicker1.getMinute());
                 begindate.setDate(begindate.getDate()+(int)(spinner.getSelectedItemId()+1));
                 long end = begindate.getTime();
                 Log.d(TAG, begindate.getDate()+":");
 
-                Inform inform1 = new Inform(1, informid1, userName, informContext.getText().toString(), hour1, minute1, informName.getText().toString(),begin,end);
+                Inform inform1 = new Inform(1, informid1, userName, informContext.getText().toString(), timePicker1.getHour(), timePicker1.getMinute(), informName.getText().toString(),begin,end);
 
-                Log.d(TAG, "--" + hour1 + "--" + minute1 + "--" + hour3 + "--" + minute3);
+
                 Log.d(TAG,inform1.getTitle()+";"+inform1.getContent());
                 informdao.addInform(inform1);
 
-                long informid3=SetSure_inform(hour3, minute3,informName.getText().toString(),informContext.getText().toString(), ((int) spinner.getSelectedItemId()) + 1);
-                Inform inform3 = new Inform(1, informid3, userName, informContext.getText().toString(), hour3, minute3, informName.getText().toString(),begin,end);
+                long informid3=SetSure_inform(timePicker3.getHour(), timePicker3.getMinute(),informName.getText().toString(),informContext.getText().toString(), ((int) spinner.getSelectedItemId()) + 1);
+                Inform inform3 = new Inform(1, informid3, userName, informContext.getText().toString(), timePicker3.getHour(), timePicker3.getMinute(), informName.getText().toString(),begin,end);
                 informdao.addInform(inform3);
 
                 if (medicinedemo.getDose() == 3) {
-                    int hour2 = Integer.parseInt(timeedit2.getText().toString().substring(0, timeedit2.getText().toString().indexOf(":")));
-                    int minute2 = Integer.parseInt(timeedit2.getText().toString().substring(timeedit2.getText().toString().indexOf(":") + 1));
-                    long informid2=SetSure_inform(hour2, minute2,informName.getText().toString(),informContext.getText().toString(), ((int) spinner.getSelectedItemId()) + 1);
-                    Inform inform2 = new Inform(1, informid2, userName, informContext.getText().toString(), hour2, minute2, informName.getText().toString(),begin,end);
+
+                    long informid2=SetSure_inform(timePicker2.getHour(), timePicker2.getMinute(),informName.getText().toString(),informContext.getText().toString(), ((int) spinner.getSelectedItemId()) + 1);
+                    Inform inform2 = new Inform(1, informid2, userName, informContext.getText().toString(), timePicker2.getHour(), timePicker2.getMinute(), informName.getText().toString(),begin,end);
                     informdao.addInform(inform2);
                 }
                 finish();

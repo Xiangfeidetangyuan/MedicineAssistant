@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TimePicker;
 
 import org.unboxing.medicineassistant.DAO.InformDao;
 import org.unboxing.medicineassistant.entity.Inform;
@@ -24,17 +25,26 @@ import static java.lang.StrictMath.abs;
 
 public class editinform extends AppCompatActivity {
 
+    private Inform informdemo;
+    private TimePicker infrom_time;
+    private EditText infrom_context;
+    private EditText infrom_title;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editinform);
         final InformDao informdao = new InformDao(this);
         //获取传入的inform对象
-        final Inform informdemo = (Inform) getIntent().getSerializableExtra("inform");
-        final EditText infrom_time = (EditText) findViewById(R.id.infrom_time_2);
-        final EditText infrom_context = (EditText) findViewById(R.id.infrom_context_2);
-        final EditText infrom_title = (EditText) findViewById(R.id.infrom_title);
-        infrom_time.setText(informdemo.getHour() + ":" + informdemo.getMinute());
+        informdemo = (Inform) getIntent().getSerializableExtra("inform");
+        infrom_time = (TimePicker) findViewById(R.id.infrom_time_2);
+        infrom_context = (EditText) findViewById(R.id.infrom_context_2);
+        infrom_title = (EditText) findViewById(R.id.infrom_title);
+        //初始化
+        infrom_time.setIs24HourView(true);
+        infrom_time.setHour(informdemo.getHour());
+        infrom_time.setMinute(informdemo.getMinute());
+
         infrom_context.setText(informdemo.getContent());
         infrom_title.setText(informdemo.getTitle());
         Button bn = (Button) findViewById(R.id.button_edit);
@@ -42,8 +52,8 @@ public class editinform extends AppCompatActivity {
                                   public void onClick(View v) {
                                          //更改数据库
                                          informdemo.setContent(infrom_context.getText().toString());
-                                         informdemo.setHour(Integer.parseInt(infrom_time.getText().toString().substring(0, infrom_time.getText().toString().indexOf(":"))));
-                                         informdemo.setMinute(Integer.parseInt(infrom_time.getText().toString().substring(infrom_time.getText().toString().indexOf(":") + 1)));
+                                         informdemo.setHour(infrom_time.getHour());
+                                         informdemo.setMinute(infrom_time.getMinute());
                                          informdemo.setTitle(infrom_title.getText().toString());
                                          informdao.updateInform(informdemo);
 
@@ -60,10 +70,10 @@ public class editinform extends AppCompatActivity {
                                       Calendar beginTime = Calendar.getInstance();
                                       //Month value is 0-based. e.g., 0 for January.
                                       //获取系统的日期
-                                      beginTime.set(beginTime.get(Calendar.YEAR), beginTime.get(Calendar.MONTH), beginTime.get(Calendar.DAY_OF_MONTH),Integer.parseInt(infrom_time.getText().toString().substring(0, infrom_time.getText().toString().indexOf(":"))) , Integer.parseInt(infrom_time.getText().toString().substring(infrom_time.getText().toString().indexOf(":") + 1)));
+                                      beginTime.set(beginTime.get(Calendar.YEAR), beginTime.get(Calendar.MONTH), beginTime.get(Calendar.DAY_OF_MONTH),infrom_time.getHour(),infrom_time.getMinute());
                                       long startMillis = beginTime.getTimeInMillis();
                                       Calendar endTime = Calendar.getInstance();
-                                      endTime.set(beginTime.get(Calendar.YEAR), beginTime.get(Calendar.MONTH), beginTime.get(Calendar.DAY_OF_MONTH), Integer.parseInt(infrom_time.getText().toString().substring(0, infrom_time.getText().toString().indexOf(":"))), Integer.parseInt(infrom_time.getText().toString().substring(infrom_time.getText().toString().indexOf(":") + 1)));
+                                      endTime.set(beginTime.get(Calendar.YEAR), beginTime.get(Calendar.MONTH), beginTime.get(Calendar.DAY_OF_MONTH), infrom_time.getHour(),infrom_time.getMinute());
                                       long endMillis = endTime.getTimeInMillis();
 
                                         //开始时间

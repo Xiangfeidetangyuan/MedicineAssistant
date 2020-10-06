@@ -15,8 +15,6 @@ import org.unboxing.medicineassistant.activity.ListAllActivity;
 public class MedicineInform extends AppCompatActivity {
 
 
-
-
     private static final String TAG = "ceshi";
     private String userName; //用户名
 

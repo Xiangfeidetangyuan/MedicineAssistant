@@ -17,6 +17,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import org.unboxing.medicineassistant.DAO.InformDao;
 import org.unboxing.medicineassistant.entity.Inform;
@@ -32,7 +33,8 @@ public class InformAdapter extends ArrayAdapter<Inform>
         private String userName; //用户名
         InformDao informdao = new InformDao(getContext());
         private int resourceID;
-    public InformAdapter(Context context, int resource, List<Inform> objects,String username) {
+
+     public InformAdapter(Context context, int resource, List<Inform> objects,String username) {
         super(context, resource,objects);
         resourceID=resource;
         userName=username;
@@ -43,9 +45,13 @@ public class InformAdapter extends ArrayAdapter<Inform>
         final Inform inform=getItem(position);//获取当前项的inform实例
         View view = LayoutInflater.from(getContext()).inflate(resourceID,parent,false);
 
-        TextView infrom_time=(TextView)view.findViewById(R.id.infrom_time);
+        TimePicker timePicker = (TimePicker)view.findViewById(R.id.timepicker_inform_item) ;
         TextView infrom_context=(TextView)view.findViewById(R.id.infrom_context);
-        infrom_time.setText(inform.getHour()+":"+inform.getMinute());
+        timePicker.setIs24HourView(true);
+        Log.d("时间是",inform.getHour()+" ,"+inform.getMinute());
+        timePicker.setHour(inform.getHour());
+        timePicker.setMinute(inform.getMinute());
+
 
         infrom_context.setText(inform.getTitle()+":"+inform.getContent());
         Switch statusbutton = (Switch)view.findViewById(R.id.switch1);
