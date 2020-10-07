@@ -17,11 +17,10 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.TimePicker;
+
 
 import org.unboxing.medicineassistant.DAO.InformDao;
 import org.unboxing.medicineassistant.entity.Inform;
-
 import java.util.List;
 
 
@@ -45,12 +44,12 @@ public class InformAdapter extends ArrayAdapter<Inform>
         final Inform inform=getItem(position);//获取当前项的inform实例
         View view = LayoutInflater.from(getContext()).inflate(resourceID,parent,false);
 
-        TimePicker timePicker = (TimePicker)view.findViewById(R.id.timepicker_inform_item) ;
+        TextView inform_time = (TextView) view.findViewById(R.id.inform_item_time_textview) ;
         TextView infrom_context=(TextView)view.findViewById(R.id.infrom_context);
-        timePicker.setIs24HourView(true);
+
+
         Log.d("时间是",inform.getHour()+" ,"+inform.getMinute());
-        timePicker.setHour(inform.getHour());
-        timePicker.setMinute(inform.getMinute());
+        inform_time.setText(inform.getHour()+":"+inform.getMinute());
 
 
         infrom_context.setText(inform.getTitle()+":"+inform.getContent());
