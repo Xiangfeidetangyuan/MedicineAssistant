@@ -23,10 +23,9 @@
 
         <TextView
             android:id="@+id/inform_item_time_textview"
-            android:layout_width="223dp"
-            android:layout_height="63dp"
-            android:background="#ffffff"
-            android:textSize="32sp"
+            android:layout_width="143dp"
+            android:layout_height="49dp"
+            android:textSize="28sp"
             android:textStyle="bold"
 
             />
@@ -50,25 +49,26 @@
         />
 
 
-   <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-       android:layout_gravity="center_horizontal">
+    <LinearLayout
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
 
-       <ImageButton
-        android:id="@+id/imageButton_delete"
-        android:layout_width="41dp"
-        android:layout_height="42dp"
-        android:scaleType="centerInside"
-        app:srcCompat="@mipmap/delete"
-        />
 
-    <ImageButton
-        android:id="@+id/imageButton_edit"
-        android:layout_width="41dp"
-        android:layout_height="42dp"
-        android:scaleType="centerInside"
-        app:srcCompat="@mipmap/edit" />
-  </LinearLayout>
+        <ImageButton
+            android:id="@+id/imageButton_delete"
+            android:layout_width="41dp"
+            android:layout_height="42dp"
+
+            android:scaleType="centerInside"
+            app:srcCompat="@mipmap/delete" />
+
+        <ImageButton
+            android:id="@+id/imageButton_edit"
+            android:layout_width="41dp"
+            android:layout_height="42dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@mipmap/edit" />
+    </LinearLayout>
 
 </LinearLayout>

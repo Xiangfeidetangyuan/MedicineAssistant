@@ -47,7 +47,7 @@ public class ListAllAdapter extends ArrayAdapter<String> {
                 //启动
                 intent.setClass(getContext(),SetInform.class);
                 getContext().startActivity(intent);
-
+                ((Activity)getContext()).finish();
 
             }
         });

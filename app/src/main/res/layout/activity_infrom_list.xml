@@ -6,8 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InformList">>
+
     <ListView
         android:id="@+id/infrom_list_listview"
+        android:layout_width="398dp"
+        android:layout_height="573dp" />
+
+    <Button
+        android:id="@+id/new_inform_button"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:text="新建" />
+
 </LinearLayout>

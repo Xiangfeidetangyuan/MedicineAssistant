@@ -27,7 +27,6 @@
         <activity android:name=".MedicineInform" />
         <activity android:name=".searchMedicine" />
         <activity android:name=".InformList" />
-        <activity android:name=".InformControl" />
         <activity android:name=".SetInform" />
         <activity android:name=".activity.ListAllActivity" />
         <activity android:name=".activity.ShowItemActivity" />

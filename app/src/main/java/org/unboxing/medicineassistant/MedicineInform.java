@@ -31,7 +31,7 @@ public class MedicineInform extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 // 给bnt1添加点击响应事件
-                Intent intent=new Intent(MedicineInform.this,InformControl.class);
+                Intent intent=new Intent(MedicineInform.this,InformList.class);
                 intent.putExtra("userName",userName);
                 //启动
                 startActivity(intent);

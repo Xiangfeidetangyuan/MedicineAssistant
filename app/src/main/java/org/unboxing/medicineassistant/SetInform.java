@@ -43,6 +43,7 @@ public class SetInform extends AppCompatActivity {
     private EditText informName;
     private EditText informContext;
     private Spinner spinner;
+    private  TextView textView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +51,6 @@ public class SetInform extends AppCompatActivity {
         setContentView(R.layout.activity_set_inform);
         informdao = new InformDao(this);
         Intent intent=getIntent();
-//        Bundle bundle = i.getExtras();
-//        bundle.getString("extras",default)
         this.userName =intent.getStringExtra("userName");
 
 
@@ -62,6 +61,7 @@ public class SetInform extends AppCompatActivity {
         informName = (EditText) findViewById(R.id.infrom_name_textview);
         informContext = (EditText) findViewById(R.id.infrom_context_textview);
         spinner = (Spinner) findViewById(R.id.spinner);
+        textView2 = (TextView)findViewById(R.id.time_textview_2);
 
         timePicker1 = (TimePicker)findViewById(R.id.timepicker1);
         timePicker2 = (TimePicker)findViewById(R.id.timepicker2);
@@ -85,6 +85,8 @@ public class SetInform extends AppCompatActivity {
         switch (medicinedemo.getDose()) {
             case 2:
                 timePicker2.setVisibility(View.INVISIBLE);
+                textView2.setVisibility(View.INVISIBLE);
+
             case 3:
                 timePicker2.setIs24HourView(true);
                 timePicker2.setHour(12);
@@ -131,6 +133,10 @@ public class SetInform extends AppCompatActivity {
                     informdao.addInform(inform2);
                 }
                 finish();
+                Intent intent=new Intent(SetInform.this,InformList.class);
+                intent.putExtra("userName",userName);
+                //启动
+                startActivity(intent);
             }
         });
 
