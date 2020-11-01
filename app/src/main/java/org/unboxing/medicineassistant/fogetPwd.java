@@ -56,8 +56,18 @@ public class fogetPwd extends AppCompatActivity {
         checkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkCode = Integer.parseInt(identifyCodeEdit.getText().toString());
+                String checkcode = String.valueOf(identifyCodeEdit.getText());
                 String tempMail = userEmailEdit.getText().toString();
+                if (checkcode.isEmpty()){
+                    Toast.makeText(fogetPwd.this, "请输入验证码", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (tempMail.isEmpty()){
+                    Toast.makeText(fogetPwd.this, "请输入邮箱", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                checkCode = Integer.parseInt(identifyCodeEdit.getText().toString());
                 if (checkCode == identifyCode && tempMail.equals(userEmail)){
                     Intent intent = new Intent(fogetPwd.this,changePwd.class);
                     intent.putExtra("userEmail",userEmail);
