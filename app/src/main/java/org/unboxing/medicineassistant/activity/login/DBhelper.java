@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant;
+package org.unboxing.medicineassistant.activity.login;
 
 import android.content.Context;
 import android.database.Cursor;

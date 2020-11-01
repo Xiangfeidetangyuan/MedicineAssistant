@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant.activity;
+package org.unboxing.medicineassistant.activity.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.unboxing.medicineassistant.DBhelper;
 import org.unboxing.medicineassistant.R;
 
 import java.util.regex.Matcher;

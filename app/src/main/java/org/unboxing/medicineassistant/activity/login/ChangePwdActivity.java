@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant.activity;
+package org.unboxing.medicineassistant.activity.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.unboxing.medicineassistant.DBhelper;
 import org.unboxing.medicineassistant.R;
 
 public class ChangePwdActivity extends AppCompatActivity {
