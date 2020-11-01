@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="0dp"
-
     android:orientation="vertical"
-    android:layout_marginStart="0dp">
+    tools:context=".activity.interaction.ShowItemActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
+        android:id="@+id/my_item_linear"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:background="@drawable/listall_circle"
-        android:layout_marginTop="0dp"
-        android:layout_marginVertical="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginVertical="10dp"
             android:textStyle="bold"
             android:text="药物名称:"
             android:textColor="#000000"
@@ -29,6 +32,8 @@
             android:id="@+id/tv_itemname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginVertical="10dp"
             android:text=""
             android:textStyle="bold"
             android:textColor="#000000"
@@ -38,16 +43,20 @@
     <RadioGroup
         android:id="@+id/RG"
         android:layout_width="wrap_content"
+        android:layout_below="@+id/my_item_linear"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/listall_circle"
-        android:layout_marginVertical="10dp"
+        android:layout_marginTop="10dp"
         android:checkedButton="@id/rb_all"
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/rb_all"
             android:layout_width="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="5dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="#000000"
@@ -56,6 +65,8 @@
         <RadioButton
             android:id="@+id/rb4"
             android:layout_width="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="5dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="#C0392B"
@@ -64,6 +75,8 @@
         <RadioButton
             android:id="@+id/rb3"
             android:layout_width="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="5dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="#E74C3C"
@@ -72,6 +85,8 @@
         <RadioButton
             android:id="@+id/rb2"
             android:layout_width="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="5dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="#DC7633"
@@ -80,6 +95,8 @@
         <RadioButton
             android:id="@+id/rb1"
             android:layout_width="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="5dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="#58D68D"
@@ -88,18 +105,21 @@
     </RadioGroup>
 
     <LinearLayout
-        android:layout_width="375dp"
+        android:layout_width="match_parent"
         android:layout_height="fill_parent"
+        android:layout_below="@id/RG"
         android:layout_gravity="center"
-        android:background="@drawable/list_circle"
-        >
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/list_circle">
 
         <ListView
             android:id="@+id/ListView"
-            android:layout_width="375dp"
-            android:layout_height="wrap_content" >
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
         </ListView>
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
