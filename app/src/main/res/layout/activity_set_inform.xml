@@ -25,10 +25,12 @@
 
         <EditText
             android:id="@+id/infrom_name_textview"
-            android:layout_width="143dp"
+            android:layout_width="300dp"
             android:layout_height="60dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="135dp"
+            android:layout_marginStart="140dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="20dp"
+
             android:hint="药名"
             android:inputType="text"
             android:text="喝药" />
@@ -44,8 +46,6 @@
         <TextView
             android:layout_width="70dp"
             android:layout_height="60dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="-2dp"
             android:gravity="center"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -55,10 +55,11 @@
 
         <EditText
             android:id="@+id/infrom_context_textview"
-            android:layout_width="253dp"
+            android:layout_width="300dp"
             android:layout_height="60dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="45dp"
+            android:layout_marginStart="140dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="20dp"
             android:hint="提醒"
             android:inputType="text"
             android:text="一天3次" />
@@ -69,8 +70,8 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:entries="@array/repeation"/>
 
     <RelativeLayout
@@ -84,20 +85,21 @@
         <TextView
             android:layout_width="70dp"
             android:layout_height="60dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="-9dp"
-            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
             android:text="早上"
+            android:gravity="center"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TimePicker
             android:id="@+id/timepicker1"
-            android:layout_width="339dp"
-            android:layout_height="101dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="2dp"
-            android:layout_weight="1"
+            android:layout_width="400dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="140dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="20dp"
 
             android:scaleX="1"
             android:scaleY="1"
@@ -118,8 +120,9 @@
             android:id="@+id/time_textview_2"
             android:layout_width="70dp"
             android:layout_height="60dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="-9dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="中午"
             android:textSize="18sp"
@@ -127,12 +130,11 @@
 
         <TimePicker
             android:id="@+id/timepicker2"
-            android:layout_width="339dp"
-            android:layout_height="101dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="2dp"
-            android:layout_weight="1"
-
+            android:layout_width="400dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="140dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="20dp"
             android:scaleX="1"
             android:scaleY="1"
             android:timePickerMode="spinner" />
@@ -149,8 +151,9 @@
         <TextView
             android:layout_width="70dp"
             android:layout_height="60dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="-9dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="晚上"
             android:textSize="18sp"
@@ -158,11 +161,11 @@
 
         <TimePicker
             android:id="@+id/timepicker3"
-            android:layout_width="339dp"
-            android:layout_height="101dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="2dp"
-            android:layout_weight="1"
+            android:layout_width="400dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="140dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="20dp"
 
             android:scaleX="1"
             android:scaleY="1"
@@ -171,10 +174,10 @@
 
     <Button
         android:id="@+id/setInfrombutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
-
+        android:layout_marginTop="20dp"
         android:text="确定" />
 
 

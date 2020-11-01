@@ -86,7 +86,7 @@ public class SetInformActivity extends AppCompatActivity {
         switch (medicinedemo.getDose()) {
             case 2:
                 timePicker2.setVisibility(View.INVISIBLE);
-                textView2.setVisibility(View.INVISIBLE);
+
 
             case 3:
                 timePicker2.setIs24HourView(true);
