@@ -5,9 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.setinform.InformListActivity"><![CDATA[>
-
-    ]]>
+    tools:context=".activity.setinform.InformListActivity">
 
     <Button
         android:id="@+id/new_inform_button"
@@ -15,12 +13,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="新建" />
-
+    <LinearLayout
+        android:layout_width="375dp"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/list_circle"
+        >
     <ListView
         android:id="@+id/infrom_list_listview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_width="375dp"
+        android:layout_height="match_parent"
+        />
+    </LinearLayout>
 
 
 </LinearLayout>
