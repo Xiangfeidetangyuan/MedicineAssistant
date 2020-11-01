@@ -47,6 +47,11 @@ public class ChangePwdActivity extends AppCompatActivity {
                     mydb.close();
                     return;
                 }
+                if (pwd1.length()<6){
+                    Toast.makeText(ChangePwdActivity.this,"密码长度需要大于6位",Toast.LENGTH_SHORT).show();
+                    mydb.close();
+                    return;
+                }
                 ContentValues values = new ContentValues();
                 values.put("userPwd", pwd1);
                 mydb.update("user", values, "userEmail = ?", new String[]{userEmail});
