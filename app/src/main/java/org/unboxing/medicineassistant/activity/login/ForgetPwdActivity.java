@@ -27,7 +27,7 @@ public class ForgetPwdActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_foget_pwd);
+        setContentView(R.layout.activity_forget_pwd);
         loginDBhelper = new LoginDBhelper(ForgetPwdActivity.this, "medicine_db");
         userEmailEdit = findViewById(R.id.changePwdEmail);
         identifyCodeEdit = findViewById(R.id.inputIdentifyCode);
