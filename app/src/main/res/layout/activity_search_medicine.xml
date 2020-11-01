@@ -20,7 +20,7 @@
 
     <LinearLayout
         android:layout_width="326dp"
-        android:layout_height="509dp"
+        android:layout_height="525dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@drawable/list_circle">
@@ -28,7 +28,7 @@
         <ListView
             android:id="@+id/adapter_listview"
             android:layout_width="383dp"
-            android:layout_height="1dp"
+            android:layout_height="match_parent"
             android:layout_weight="1">
 
         </ListView>
