@@ -10,7 +10,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
-import org.unboxing.medicineassistant.entity.LevelInfo;
+import org.unboxing.medicineassistant.entity.InteractionLevelInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +18,8 @@ import java.util.List;
 public class ShowItemAdapter extends BaseAdapter implements Filterable {
 
     private LayoutInflater inflater;
-    private List<LevelInfo> displayItem;
-    private List<LevelInfo> item;
+    private List<InteractionLevelInfo> displayItem;
+    private List<InteractionLevelInfo> item;
     private Context context;
     private Filter mFilter;
 
@@ -28,7 +28,7 @@ public class ShowItemAdapter extends BaseAdapter implements Filterable {
         TextView Text;
     }
 
-    public ShowItemAdapter(Context context, List<LevelInfo> data){
+    public ShowItemAdapter(Context context, List<InteractionLevelInfo> data){
         inflater = LayoutInflater.from(context);
         this.displayItem = data;
         this.context = context;
@@ -83,15 +83,15 @@ public class ShowItemAdapter extends BaseAdapter implements Filterable {
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
             FilterResults result = new FilterResults();
-            List<LevelInfo> list ;
+            List<InteractionLevelInfo> list ;
 
             if (TextUtils.isEmpty(charSequence)){//当过滤的关键字为空的时候，我们则显示所有的数据
                 list  = item;
             }else {//否则把符合条件的数据对象添加到集合中
                 list = new ArrayList<>();
-                for (LevelInfo levelInfo :item){
-                    if (levelInfo.getTitle().contains(charSequence)|| levelInfo.getDesc().contains(charSequence)){
-                        list.add(levelInfo);
+                for (InteractionLevelInfo interactionLevelInfo :item){
+                    if (interactionLevelInfo.getTitle().contains(charSequence)|| interactionLevelInfo.getDesc().contains(charSequence)){
+                        list.add(interactionLevelInfo);
                     }
 
                 }
@@ -103,7 +103,7 @@ public class ShowItemAdapter extends BaseAdapter implements Filterable {
         //在publishResults方法中告诉适配器更新界面
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-            displayItem = (List<LevelInfo>)filterResults.values;
+            displayItem = (List<InteractionLevelInfo>)filterResults.values;
             if (filterResults.count>0){
                 notifyDataSetChanged();//通知数据发生了改变
             }else {

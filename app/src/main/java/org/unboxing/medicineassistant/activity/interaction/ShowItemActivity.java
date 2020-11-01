@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.unboxing.medicineassistant.DAO.MedicinePairDao;
 import org.unboxing.medicineassistant.DAO.impl.MedicinePairDaoImpl;
 import org.unboxing.medicineassistant.R;
-import org.unboxing.medicineassistant.entity.LevelInfo;
+import org.unboxing.medicineassistant.entity.InteractionLevelInfo;
 import org.unboxing.medicineassistant.entity.MedicinePair;
 
 import java.text.Collator;
@@ -88,7 +88,7 @@ public class ShowItemActivity extends AppCompatActivity {
     }
 
     private void initLsit(){
-        List<LevelInfo> data = new ArrayList<>();
+        List<InteractionLevelInfo> data = new ArrayList<>();
         String medicineName = getIntent().getStringExtra("main_medicine");
 
         tv_name.setText(medicineName);
@@ -122,16 +122,16 @@ public class ShowItemActivity extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.ListView);
         for(String s : list_4){
-            data.add(new LevelInfo(s, "禁忌"));
+            data.add(new InteractionLevelInfo(s, "禁忌"));
         }
         for(String s : list_3){
-            data.add(new LevelInfo(s, "严重"));
+            data.add(new InteractionLevelInfo(s, "严重"));
         }
         for(String s : list_2){
-            data.add(new LevelInfo(s, "中度"));
+            data.add(new InteractionLevelInfo(s, "中度"));
         }
         for(String s : list_1){
-            data.add(new LevelInfo(s, "轻度"));
+            data.add(new InteractionLevelInfo(s, "轻度"));
         }
 
         adapter = new ShowItemAdapter(this, data);

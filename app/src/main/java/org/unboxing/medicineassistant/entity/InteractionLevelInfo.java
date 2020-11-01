@@ -1,11 +1,11 @@
 package org.unboxing.medicineassistant.entity;
 
-public class LevelInfo {
+public class InteractionLevelInfo {
 
     String title;
     String desc;
 
-    public LevelInfo(String title, String desc) {
+    public InteractionLevelInfo(String title, String desc) {
         this.title = title;
         this.desc = desc;
     }
