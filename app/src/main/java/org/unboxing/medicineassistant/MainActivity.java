@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private EditText userNameEdit;
     private EditText passwordEdit;
-    private Button loginBtn, registerBtn,fogPwdBtn;
+    private Button loginBtn, registerBtn, fogPwdBtn;
     private String userName, pwd;
 
     private DBhelper dbhelper;
@@ -66,16 +66,21 @@ public class MainActivity extends AppCompatActivity {
                 userName = userNameEdit.getText().toString();
                 pwd = passwordEdit.getText().toString();
                 mydb = dbhelper.getWritableDatabase();
-                ArrayList<ArrayList<String>> temp = dbhelper.getListFromUser(mydb,userName,"userName");
-                if (temp != null && temp.get(0).get(1).equals(pwd) ){
-                    Intent intent = new Intent(MainActivity.this, MedicineInform.class);
-                    intent.putExtra("userName",userName);
-                    startActivity(intent);
+                if (userName.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "请输入用户名", Toast.LENGTH_SHORT).show();
+                    return;
                 }
-        else
-            Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
-
-
+                if (pwd.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "请输入密码", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                ArrayList<ArrayList<String>> temp = dbhelper.getListFromUser(mydb, userName, "userName");
+                if (temp.size() != 0 && temp.get(0).get(1).equals(pwd)) {
+                    Intent intent = new Intent(MainActivity.this, MedicineInform.class);
+                    intent.putExtra("userName", userName);
+                    startActivity(intent);
+                } else
+                    Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
             }
         });
 
