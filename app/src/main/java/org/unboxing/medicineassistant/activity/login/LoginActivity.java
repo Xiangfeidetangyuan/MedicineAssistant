@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.unboxing.medicineassistant.MedicineInform;
 import org.unboxing.medicineassistant.R;
+import org.unboxing.medicineassistant.activity.setinform.MedicineAssiantantMenuActivity;
 import org.unboxing.medicineassistant.util.CopyDateBaseFile;
 
 import java.util.ArrayList;
@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 ArrayList<ArrayList<String>> temp = dbhelper.getListFromUser(mydb, userName, "userName");
                 if (temp.size() != 0 && temp.get(0).get(1).equals(pwd)) {
-                    Intent intent = new Intent(LoginActivity.this, MedicineInform.class);
+                    Intent intent = new Intent(LoginActivity.this, MedicineAssiantantMenuActivity.class);
                     intent.putExtra("userName", userName);
                     startActivity(intent);
                 } else
