@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant;
+package org.unboxing.medicineassistant.activity.setinform;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +22,7 @@ import android.widget.TimePicker;
 
 
 import org.unboxing.medicineassistant.DAO.InformDao;
+import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.entity.Inform;
 import org.unboxing.medicineassistant.entity.medicine;
 
@@ -30,7 +31,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 
-public class SetInform extends AppCompatActivity {
+public class SetInformActivity extends AppCompatActivity {
 
     private static final String TAG = "Setinform";
     private static final int PERMISSION_RESULT_CODE = 1;
@@ -133,7 +134,7 @@ public class SetInform extends AppCompatActivity {
                     informdao.addInform(inform2);
                 }
                 finish();
-                Intent intent=new Intent(SetInform.this,InformList.class);
+                Intent intent=new Intent(SetInformActivity.this, InformListActivity.class);
                 intent.putExtra("userName",userName);
                 //启动
                 startActivity(intent);

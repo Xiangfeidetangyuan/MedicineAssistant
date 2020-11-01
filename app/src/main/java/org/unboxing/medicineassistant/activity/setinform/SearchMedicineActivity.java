@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant;
+package org.unboxing.medicineassistant.activity.setinform;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,15 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
 import org.unboxing.medicineassistant.DAO.MedicineDao;
+import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.entity.medicine;
 
 import java.text.Collator;
@@ -24,12 +22,12 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
-public class searchMedicine extends AppCompatActivity {
+public class SearchMedicineActivity extends AppCompatActivity {
     private final static Comparator<Object> CHINA_COMPARE = Collator.getInstance(java.util.Locale.CHINA);
     private HashMap<String, medicine> checkMap = new HashMap<>();
     private SearchView mSearchView;
     private ListView mListView;
-    private  ListAllAdapter adapter;
+    private SearchMedicineAdapter adapter;
     private MedicineDao me;
     private String userName; //用户名
     private Button notfindmedicine_button;
@@ -57,7 +55,7 @@ public class searchMedicine extends AppCompatActivity {
         }
 
         Collections.sort(li,CHINA_COMPARE);
-        adapter = new ListAllAdapter(this,R.layout.medicine_item,li,userName);
+        adapter = new SearchMedicineAdapter(this,R.layout.medicine_item,li,userName);
         mListView.setAdapter(adapter);
         mListView.setTextFilterEnabled(true);
 
@@ -70,7 +68,7 @@ public class searchMedicine extends AppCompatActivity {
             public boolean onQueryTextSubmit(String query) {
                 if(checkMap.get(query)!=null){
                     String tempName = checkMap.get(query).getName();
-                    Intent intent = new Intent(searchMedicine.this, SetInform.class);
+                    Intent intent = new Intent(SearchMedicineActivity.this, SetInformActivity.class);
                     medicine medicinedemo = me.getmedicinebyname(tempName);
                     Bundle bundle=new Bundle();
                     bundle.putSerializable("Medicine",medicinedemo);
@@ -103,7 +101,7 @@ public class searchMedicine extends AppCompatActivity {
         notfindmedicine_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent intent = new Intent(searchMedicine.this,DiyInform.class);
+               Intent intent = new Intent(SearchMedicineActivity.this, DIYInformActivity.class);
                intent.putExtra("userName",userName);
                startActivity(intent);
             }

@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant;
+package org.unboxing.medicineassistant.activity.setinform;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 
 import org.unboxing.medicineassistant.DAO.InformDao;
+import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.entity.Inform;
 import java.util.List;
 
@@ -87,7 +88,7 @@ public class InformAdapter extends ArrayAdapter<Inform>
                     Bundle bundle=new Bundle();
                     bundle.putSerializable("inform",inform);
                     intent.putExtras(bundle);
-                    intent.setClass(getContext(),editinform.class);
+                    intent.setClass(getContext(), EditInformActivity.class);
                     //启动
                     getContext().startActivity(intent);
                     ((Activity)getContext()).finish();

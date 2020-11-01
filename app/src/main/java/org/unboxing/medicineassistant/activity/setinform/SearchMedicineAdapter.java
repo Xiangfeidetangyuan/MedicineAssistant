@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant;
+package org.unboxing.medicineassistant.activity.setinform;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,14 +13,15 @@ import android.widget.TextView;
 
 
 import org.unboxing.medicineassistant.DAO.MedicineDao;
+import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.entity.medicine;
 
 import java.util.List;
 
-public class ListAllAdapter extends ArrayAdapter<String> {
+public class SearchMedicineAdapter extends ArrayAdapter<String> {
     private final int resourceId;
     private String userName; //用户名
-    public ListAllAdapter(Context context, int textViewResourceId,  List objects,String username) {
+    public SearchMedicineAdapter(Context context, int textViewResourceId, List objects, String username) {
         super(context,  textViewResourceId, objects);
         resourceId = textViewResourceId;
         userName=username;
@@ -45,7 +46,7 @@ public class ListAllAdapter extends ArrayAdapter<String> {
                 intent.putExtras(bundle);
                 intent.putExtra("userName",userName);
                 //启动
-                intent.setClass(getContext(),SetInform.class);
+                intent.setClass(getContext(), SetInformActivity.class);
                 getContext().startActivity(intent);
                 ((Activity)getContext()).finish();
 

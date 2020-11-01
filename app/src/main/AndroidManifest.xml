@@ -12,22 +12,22 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DiyInform"></activity>
-        <activity android:name=".activity.login.LoginActivity">
+        <activity android:name=".activity.setinform.DIYInformActivity"></activity>
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.login.ChangePwdActivity" />
-        <activity android:name=".activity.login.ForgetPwdActivity" />
-        <activity android:name=".activity.login.RegisterActivity" />
-        <activity android:name=".editinform" />
-        <activity android:name=".MedicineInform" />
-        <activity android:name=".searchMedicine" />
-        <activity android:name=".InformList" />
-        <activity android:name=".SetInform" />
+        <activity android:name=".activity.ChangePwdActivity" />
+        <activity android:name=".activity.ForgetPwdActivity" />
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.setinform.EditInformActivity" />
+        <activity android:name=".activity.setinform.MedicineAssiantantMenuActivity" />
+        <activity android:name=".activity.setinform.SearchMedicineActivity" />
+        <activity android:name=".activity.setinform.InformListActivity" />
+        <activity android:name=".activity.setinform.SetInformActivity" />
         <activity android:name=".activity.interaction.ListAllActivity" />
         <activity android:name=".activity.interaction.ShowItemActivity" />
     </application>

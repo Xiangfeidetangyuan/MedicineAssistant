@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant;
+package org.unboxing.medicineassistant.activity.setinform;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 
 import org.unboxing.medicineassistant.DAO.InformDao;
+import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.entity.Inform;
 
 import java.util.Calendar;
@@ -23,7 +24,7 @@ import java.util.Date;
 
 import static java.lang.StrictMath.abs;
 
-public class editinform extends AppCompatActivity {
+public class EditInformActivity extends AppCompatActivity {
 
     private Inform informdemo;
     private TimePicker infrom_time;

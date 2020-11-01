@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant;
+package org.unboxing.medicineassistant.activity.setinform;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 
 import org.unboxing.medicineassistant.DAO.InformDao;
+import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.entity.Inform;
 import org.unboxing.medicineassistant.entity.medicine;
 
@@ -27,7 +28,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class DiyInform extends AppCompatActivity {
+public class DIYInformActivity extends AppCompatActivity {
     private static final String TAG = "DiyInform";
     private static final int PERMISSION_RESULT_CODE = 1;
     private InformDao informdao;

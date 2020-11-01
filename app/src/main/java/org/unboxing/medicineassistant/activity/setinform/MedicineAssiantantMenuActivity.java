@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant;
+package org.unboxing.medicineassistant.activity.setinform;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,10 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.activity.interaction.ListAllActivity;
 
 
-public class MedicineInform extends AppCompatActivity {
+public class MedicineAssiantantMenuActivity extends AppCompatActivity {
 
 
     private static final String TAG = "ceshi";
@@ -30,7 +31,7 @@ public class MedicineInform extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 // 给bnt1添加点击响应事件
-                Intent intent=new Intent(MedicineInform.this,InformList.class);
+                Intent intent=new Intent(MedicineAssiantantMenuActivity.this, InformListActivity.class);
                 intent.putExtra("userName",userName);
                 //启动
                 startActivity(intent);
@@ -41,7 +42,7 @@ public class MedicineInform extends AppCompatActivity {
         Button query=(Button) findViewById(R.id.query);
         query.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                Intent intent=new Intent(MedicineInform.this, ListAllActivity.class);
+                Intent intent=new Intent(MedicineAssiantantMenuActivity.this, ListAllActivity.class);
                 startActivity(intent);
             }
         });
