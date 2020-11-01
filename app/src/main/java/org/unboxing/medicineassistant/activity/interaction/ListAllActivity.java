@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant.activity;
+package org.unboxing.medicineassistant.activity.interaction;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant.activity;
+package org.unboxing.medicineassistant.activity.interaction;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

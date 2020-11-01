@@ -28,8 +28,8 @@
         <activity android:name=".searchMedicine" />
         <activity android:name=".InformList" />
         <activity android:name=".SetInform" />
-        <activity android:name=".activity.ListAllActivity" />
-        <activity android:name=".activity.ShowItemActivity" />
+        <activity android:name=".activity.interaction.ListAllActivity" />
+        <activity android:name=".activity.interaction.ShowItemActivity" />
     </application>
 
 </manifest>
