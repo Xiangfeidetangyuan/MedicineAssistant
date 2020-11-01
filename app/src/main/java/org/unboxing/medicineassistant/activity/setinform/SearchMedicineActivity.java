@@ -60,8 +60,6 @@ public class SearchMedicineActivity extends AppCompatActivity {
         mListView.setTextFilterEnabled(true);
 
 
-
-
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             // 当点击搜索按钮时触发该方法
             @Override

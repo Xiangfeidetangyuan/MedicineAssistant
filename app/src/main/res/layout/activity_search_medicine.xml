@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
+        android:layout_alignParentTop="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/line1"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center">
     <SearchView
         android:id="@+id/search_view"
@@ -19,17 +22,18 @@
 
 
     <LinearLayout
-        android:layout_width="326dp"
-        android:layout_height="525dp"
+        android:layout_width="wrap_content"
+        android:layout_height="550dp"
+        android:layout_below="@+id/line1"
         android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/list_circle">
 
         <ListView
             android:id="@+id/adapter_listview"
-            android:layout_width="383dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_width="match_parent"
+            android:layout_height="541dp">
 
         </ListView>
     </LinearLayout>
@@ -37,12 +41,13 @@
 
     <Button
         android:id="@+id/notfindmedicine_textview"
-        android:layout_width="360dp"
-        android:layout_height="59dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginVertical="20dp"
         android:text="当前搜索不存在,点击设置自定义提醒" />
 
 
-</LinearLayout>
+</RelativeLayout>
