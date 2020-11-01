@@ -1,147 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.login.RegisterActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".activity.login.RegisterActivity">
 
-    <!--LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/returnBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="返回"
-            android:textSize="18sp">
-
-        </Button>
-    </LinearLayout-->
-
-    <RelativeLayout
+    <TextView
+        android:id="@+id/registerLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center">
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="注册用药助手"
+        android:textColor="#3f3f3f"
+        android:textSize="25sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="欢迎注册用药助手"
-            android:textSize="25sp">
 
-        </TextView>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/inputUserName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center">
-
-        <TextView
-            android:id="@+id/text1"
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:text="请输入用户名"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginStart="20dp"></TextView>
-
-        <EditText
-            android:id="@+id/inputUserName"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="2dp"
-            android:layout_toEndOf="@+id/text1"></EditText>
+        android:layout_below="@+id/registerLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:ems="12"
+        android:hint="请输入用户名"
+        android:textSize="20dp" />
 
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/inputPwd1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center">
+        android:layout_below="@+id/inputUserName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:ems="12"
+        android:hint="请输入6位以上密码"
+        android:inputType="textPassword"
+        android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="20dp"
-            android:gravity="center"
-            android:text="请输入密码"
-            android:textSize="18sp"
-            android:textStyle="bold"></TextView>
 
-        <EditText
-            android:id="@+id/inputPwd1"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_toEndOf="@+id/text2"
-            android:inputType="textPassword"></EditText>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/inputPwd2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center">
+        android:layout_below="@+id/inputPwd1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:ems="12"
+        android:hint="重复输入"
+        android:inputType="textPassword"
+        android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/text3"
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:text="重复输入"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginStart="20dp"></TextView>
 
-        <EditText
-            android:id="@+id/inputPwd2"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_toEndOf="@+id/text3"
-            android:inputType="textPassword"></EditText>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/inputEmail"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center">
+        android:layout_below="@+id/inputPwd2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:ems="12"
+        android:hint="请输入邮箱"
+        android:inputType="textEmailAddress"
+        android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/text4"
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:text="请输入邮箱"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginStart="20dp"></TextView>
-
-        <EditText
-            android:id="@+id/inputEmail"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_toEndOf="@+id/text4"
-            android:inputType="textEmailAddress"></EditText>
-
-    </RelativeLayout>
 
     <Button
         android:id="@+id/submitBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="注册"
-        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/inputEmail"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:textSize="20sp"></Button>
-</LinearLayout>
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_style"
+        android:text="注册"
+        android:textColor="#FFF" />
+</RelativeLayout>
