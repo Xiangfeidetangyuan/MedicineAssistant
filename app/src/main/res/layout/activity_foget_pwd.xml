@@ -1,87 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.login.ForgetPwdActivity"
-    android:orientation="vertical">
+    tools:context=".activity.login.ForgetPwdActivity">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/fogetPwdLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center">
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="密码找回"
+        android:textColor="#3f3f3f"
+        android:textSize="25sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="密码找回"
-            android:textSize="25sp">
-        </TextView>
-    </RelativeLayout>
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/temp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center">
-
-        <TextView
-            android:id="@+id/text1"
-            android:layout_width="70dp"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:text="邮箱"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginStart="20dp"></TextView>
+        android:layout_below="@+id/fogetPwdLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        >
 
         <EditText
             android:id="@+id/changePwdEmail"
-            android:layout_width="220dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:layout_toEndOf="@+id/text1"></EditText>
+            android:ems="10"
+            android:hint="请输入邮箱" />
+
         <Button
             android:id="@+id/getCodeBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="获取验证码"
-            android:layout_toEndOf="@id/changePwdEmail"></Button>
+            android:layout_toEndOf="@id/changePwdEmail"
+            android:background="@null"
+            android:text="获取验证码" />
 
     </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center">
-
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="70dp"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:text="验证码"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginStart="20dp"></TextView>
 
         <EditText
+            android:ems="14"
+            android:hint="请输入验证码"
             android:id="@+id/inputIdentifyCode"
-            android:layout_width="220dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/temp"
+            android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/text2"
-            android:inputType="number"></EditText>
+            android:inputType="number"/>
 
-    </RelativeLayout>
+
     <Button
         android:id="@+id/changePwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="确认"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp">
+        android:layout_below="@+id/inputIdentifyCode"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFF"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_style"
+        android:text="确认">
 
     </Button>
-</LinearLayout>
+</RelativeLayout>
