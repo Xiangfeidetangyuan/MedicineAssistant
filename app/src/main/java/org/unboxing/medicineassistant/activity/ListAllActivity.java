@@ -69,9 +69,8 @@ public class ListAllActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //设置SearchView自动缩小为图标
-        searchView.setIconifiedByDefault(false);//设为true则搜索栏 缩小成俄日一个图标点击展开
-        //设置该SearchView显示搜索按钮
+        searchView.setIconifiedByDefault(false);
+
         searchView.setSubmitButtonEnabled(true);
         //设置默认提示文字
         searchView.setQueryHint("输入您想查找的内容");
