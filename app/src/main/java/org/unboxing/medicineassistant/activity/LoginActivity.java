@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant;
+package org.unboxing.medicineassistant.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,11 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.unboxing.medicineassistant.DBhelper;
+import org.unboxing.medicineassistant.MedicineInform;
+import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.util.CopyDateBaseFile;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private EditText userNameEdit;
     private EditText passwordEdit;
     private Button loginBtn, registerBtn, fogPwdBtn;
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         registerBtn = findViewById(R.id.registerBtn);
         fogPwdBtn = findViewById(R.id.fogPwdBtn);
 
-        dbhelper = new DBhelper(MainActivity.this, "medicine_db");
+        dbhelper = new DBhelper(LoginActivity.this, "medicine_db");
         mydb = dbhelper.getWritableDatabase();
         Cursor cursor = mydb.query("user", new String[]{"userName", "userPwd", "userEmail"}, null, null, null, null, null);
         //利用游标遍历所有数据对象
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         // 关闭游标，释放资源
         cursor.close();
         mydb.close();
-        Toast.makeText(MainActivity.this, textview_data, Toast.LENGTH_LONG).show();
+        Toast.makeText(LoginActivity.this, textview_data, Toast.LENGTH_LONG).show();
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,20 +70,20 @@ public class MainActivity extends AppCompatActivity {
                 pwd = passwordEdit.getText().toString();
                 mydb = dbhelper.getWritableDatabase();
                 if (userName.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "请输入用户名", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "请输入用户名", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (pwd.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "请输入密码", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "请输入密码", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 ArrayList<ArrayList<String>> temp = dbhelper.getListFromUser(mydb, userName, "userName");
                 if (temp.size() != 0 && temp.get(0).get(1).equals(pwd)) {
-                    Intent intent = new Intent(MainActivity.this, MedicineInform.class);
+                    Intent intent = new Intent(LoginActivity.this, MedicineInform.class);
                     intent.putExtra("userName", userName);
                     startActivity(intent);
                 } else
-                    Toast.makeText(MainActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -90,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
 
                 userName = userNameEdit.getText().toString();
                 pwd = passwordEdit.getText().toString();
-                Toast.makeText(MainActivity.this, "点击了注册按钮", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, register.class);
+                Toast.makeText(LoginActivity.this, "点击了注册按钮", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
 
 
@@ -125,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         fogPwdBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, fogetPwd.class);
+                Intent intent = new Intent(LoginActivity.this, ForgetPwdActivity.class);
                 startActivity(intent);
             }
         });

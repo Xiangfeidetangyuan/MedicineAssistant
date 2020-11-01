@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant;
+package org.unboxing.medicineassistant.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,11 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.unboxing.medicineassistant.DBhelper;
+import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.mail.mail;
 
 import java.util.ArrayList;
 
-public class fogetPwd extends AppCompatActivity {
+public class ForgetPwdActivity extends AppCompatActivity {
 
     private EditText userEmailEdit;
     private EditText identifyCodeEdit;
@@ -27,7 +29,7 @@ public class fogetPwd extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foget_pwd);
-        dBhelper = new DBhelper(fogetPwd.this, "medicine_db");
+        dBhelper = new DBhelper(ForgetPwdActivity.this, "medicine_db");
         userEmailEdit = findViewById(R.id.changePwdEmail);
         identifyCodeEdit = findViewById(R.id.inputIdentifyCode);
         getCodeBtn = findViewById(R.id.getCodeBtn);
@@ -44,10 +46,10 @@ public class fogetPwd extends AppCompatActivity {
                     mail sendmail = new mail();
                     String message = "【验证码】"+identifyCode;
                     sendmail.send(userEmail,message);
-                    Toast.makeText(fogetPwd.this, "验证码已发送", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPwdActivity.this, "验证码已发送", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(fogetPwd.this, "不存在此用户", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPwdActivity.this, "不存在此用户", Toast.LENGTH_SHORT).show();
                 }
                 mydb.close();
             }
@@ -59,23 +61,23 @@ public class fogetPwd extends AppCompatActivity {
                 String checkcode = String.valueOf(identifyCodeEdit.getText());
                 String tempMail = userEmailEdit.getText().toString();
                 if (checkcode.isEmpty()){
-                    Toast.makeText(fogetPwd.this, "请输入验证码", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPwdActivity.this, "请输入验证码", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (tempMail.isEmpty()){
-                    Toast.makeText(fogetPwd.this, "请输入邮箱", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPwdActivity.this, "请输入邮箱", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 checkCode = Integer.parseInt(identifyCodeEdit.getText().toString());
                 if (checkCode == identifyCode && tempMail.equals(userEmail)){
-                    Intent intent = new Intent(fogetPwd.this,changePwd.class);
+                    Intent intent = new Intent(ForgetPwdActivity.this, ChangePwdActivity.class);
                     intent.putExtra("userEmail",userEmail);
                     startActivity(intent);
                 }
                 else
                 {
-                    Toast.makeText(fogetPwd.this, "验证码错误", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPwdActivity.this, "验证码错误", Toast.LENGTH_SHORT).show();
                 }
             }
         });

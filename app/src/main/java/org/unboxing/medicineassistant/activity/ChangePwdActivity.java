@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant;
+package org.unboxing.medicineassistant.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,12 +11,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class changePwd extends AppCompatActivity {
+import org.unboxing.medicineassistant.DBhelper;
+import org.unboxing.medicineassistant.R;
+
+public class ChangePwdActivity extends AppCompatActivity {
     private EditText pwd01;
     private EditText pwd02;
     private Button updateBtn;
     private String userEmail;
-    private DBhelper dbhelper = new DBhelper(changePwd.this,"medicine_db");
+    private DBhelper dbhelper = new DBhelper(ChangePwdActivity.this,"medicine_db");
     private SQLiteDatabase mydb;
 
     @Override
@@ -36,21 +39,21 @@ public class changePwd extends AppCompatActivity {
                 String pwd1 = pwd01.getText().toString();
                 String pwd2 = pwd02.getText().toString();
                 if (hasNULL(pwd1,pwd2)){
-                    Toast.makeText(changePwd.this,"输入不能为空",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangePwdActivity.this,"输入不能为空",Toast.LENGTH_SHORT).show();
                     mydb.close();
                     return;
                 }
                 if (!isSame(pwd1,pwd2)){
-                    Toast.makeText(changePwd.this,"两次密码输入不一致！",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangePwdActivity.this,"两次密码输入不一致！",Toast.LENGTH_SHORT).show();
                     mydb.close();
                     return;
                 }
                 ContentValues values = new ContentValues();
                 values.put("userPwd", pwd1);
                 mydb.update("user", values, "userEmail = ?", new String[]{userEmail});
-                Toast.makeText(changePwd.this,"修改成功",Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChangePwdActivity.this,"修改成功",Toast.LENGTH_SHORT).show();
                 mydb.close();
-                Intent intent = new Intent(changePwd.this,MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent intent = new Intent(ChangePwdActivity.this, LoginActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });

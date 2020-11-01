@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".register"
+    tools:context=".activity.RegisterActivity"
     android:orientation="vertical">
 
     <!--LinearLayout
@@ -71,11 +71,11 @@
             android:id="@+id/text2"
             android:layout_width="120dp"
             android:layout_height="60dp"
+            android:layout_marginStart="20dp"
             android:gravity="center"
             android:text="请输入密码"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginStart="20dp"></TextView>
+            android:textStyle="bold"></TextView>
 
         <EditText
             android:id="@+id/inputPwd1"
