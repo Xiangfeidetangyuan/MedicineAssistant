@@ -103,9 +103,9 @@ public class searchMedicine extends AppCompatActivity {
         notfindmedicine_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-           //     Intent intent = new Intent(searchMedicine.this,DiyInform.class);
-           //     intent.putExtra("userName",userName);
-           //     startActivity(intent);
+               Intent intent = new Intent(searchMedicine.this,DiyInform.class);
+               intent.putExtra("userName",userName);
+               startActivity(intent);
             }
 
         });
