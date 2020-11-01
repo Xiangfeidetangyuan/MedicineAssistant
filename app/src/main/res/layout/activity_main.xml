@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.login.LoginActivity"
-    android:orientation="vertical">
+    >
 
    <LinearLayout
+       android:id="@+id/logo"
        android:layout_width="wrap_content"
-       android:layout_height="60dp"
-       android:layout_marginTop="20dp"
+       android:layout_height="wrap_content"
+       android:layout_alignParentTop="true"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="60dp"
        android:gravity="center"
        android:layout_gravity="center">
        <ImageView
@@ -24,89 +27,80 @@
            android:layout_width="wrap_content"
            android:layout_height="match_parent"
            android:text="@string/welcome"
-           android:textSize="18sp"
+           android:textSize="24sp"
            android:gravity="center">
        </TextView>
 
    </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp">
 
-        <TextView
-            android:id="@+id/text1"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:text ="@string/username"
-            android:textSize="14sp"
-            android:textStyle="bold">
-        </TextView>
+
+
 
         <EditText
             android:id="@+id/inputUserName"
-            android:layout_width="289dp"
-            android:layout_height="57dp"
-            android:layout_marginStart="-6dp"
-            android:layout_toEndOf="@+id/text1"></EditText>
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp">
-
-        <TextView
-            android:id="@+id/text2"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:gravity="center"
-            android:text ="@string/pwd"
-            android:textSize="14sp"
-            android:textStyle="bold">
-        </TextView>
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/logo"
+            android:ems="13"
+            android:hint="  请输入账号"
+            ></EditText>
+
 
         <EditText
             android:id="@+id/inputPwd"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:layout_toEndOf="@+id/text2"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/inputUserName"
+            android:hint="  请输入密码"
+            android:ems="13"
             android:inputType="textPassword"></EditText>
 
-    </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+
+
         <Button
             android:id="@+id/loginBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="200dp"
+            android:background="#4e6ef2"
+            android:layout_marginLeft="45dp"
+            android:textColor="#FFF"
             android:text="@string/login">
         </Button>
 
         <Button
+            android:id="@+id/fogPwdBtn"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:background="@null"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:textColor="#686868"
+            android:text="忘记密码？"
+            android:layout_gravity="center">
+        </Button>
+
+        <Button
             android:id="@+id/registerBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="200dp"
+            android:background="#4e6ef2"
+            android:layout_marginRight="45dp"
+            android:textColor="#FFF"
             android:text="@string/register">
         </Button>
 
-    </LinearLayout>
-    <Button
-        android:id="@+id/fogPwdBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="忘记密码？"
-        android:layout_gravity="center">
-    </Button>
-</LinearLayout>
+
+</RelativeLayout>
