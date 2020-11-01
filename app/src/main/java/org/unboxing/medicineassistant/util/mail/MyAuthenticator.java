@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant.mail;
+package org.unboxing.medicineassistant.util.mail;
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;

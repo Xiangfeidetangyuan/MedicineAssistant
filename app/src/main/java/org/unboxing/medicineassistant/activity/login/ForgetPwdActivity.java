@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.unboxing.medicineassistant.R;
-import org.unboxing.medicineassistant.mail.mail;
+import org.unboxing.medicineassistant.util.mail.mail;
 
 import java.util.ArrayList;
 

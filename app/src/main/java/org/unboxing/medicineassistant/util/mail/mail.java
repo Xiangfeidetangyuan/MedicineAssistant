@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant.mail;
+package org.unboxing.medicineassistant.util.mail;
 
 public class mail {
     private static final String HOST = "smtp.126.com";
