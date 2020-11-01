@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginBtn, registerBtn, fogPwdBtn;
     private String userName, pwd;
 
-    private DBhelper dbhelper;
+    private LoginDBhelper dbhelper;
     private SQLiteDatabase mydb;
 
     @Override
@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         registerBtn = findViewById(R.id.registerBtn);
         fogPwdBtn = findViewById(R.id.fogPwdBtn);
 
-        dbhelper = new DBhelper(LoginActivity.this, "medicine_db");
+        dbhelper = new LoginDBhelper(LoginActivity.this, "medicine_db");
         mydb = dbhelper.getWritableDatabase();
         Cursor cursor = mydb.query("user", new String[]{"userName", "userPwd", "userEmail"}, null, null, null, null, null);
         //利用游标遍历所有数据对象

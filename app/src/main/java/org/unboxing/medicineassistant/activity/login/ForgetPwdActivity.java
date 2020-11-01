@@ -22,13 +22,13 @@ public class ForgetPwdActivity extends AppCompatActivity {
     private Button getCodeBtn, checkBtn;
     private String userEmail;
     private int identifyCode,checkCode;
-    private DBhelper dBhelper;
+    private LoginDBhelper loginDBhelper;
     private SQLiteDatabase mydb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foget_pwd);
-        dBhelper = new DBhelper(ForgetPwdActivity.this, "medicine_db");
+        loginDBhelper = new LoginDBhelper(ForgetPwdActivity.this, "medicine_db");
         userEmailEdit = findViewById(R.id.changePwdEmail);
         identifyCodeEdit = findViewById(R.id.inputIdentifyCode);
         getCodeBtn = findViewById(R.id.getCodeBtn);
@@ -38,8 +38,8 @@ public class ForgetPwdActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userEmail = userEmailEdit.getText().toString();
-                mydb = dBhelper.getWritableDatabase();
-                ArrayList<ArrayList<String>> result = dBhelper.getListFromUser(mydb,userEmail,"userEmail");
+                mydb = loginDBhelper.getWritableDatabase();
+                ArrayList<ArrayList<String>> result = loginDBhelper.getListFromUser(mydb,userEmail,"userEmail");
                 if (result.size()!=0) {
                     identifyCode = (int) (Math.random() * (999999 - 100000) + 100000);
                     mail sendmail = new mail();

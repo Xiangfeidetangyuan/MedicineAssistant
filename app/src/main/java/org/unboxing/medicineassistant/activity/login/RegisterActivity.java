@@ -6,12 +6,10 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.unboxing.medicineassistant.R;
@@ -25,14 +23,14 @@ public class RegisterActivity extends AppCompatActivity {
     private Button registerBtn;
     private String userName, pwd1, pwd2, email;
 
-    private DBhelper dbhelper;
+    private LoginDBhelper dbhelper;
     private SQLiteDatabase mydb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        dbhelper = new DBhelper(RegisterActivity.this, "medicine_db");
+        dbhelper = new LoginDBhelper(RegisterActivity.this, "medicine_db");
         userNameEdit = findViewById(R.id.inputUserName);
         pwdEdit1 = findViewById(R.id.inputPwd1);
         pwdEdit2 = findViewById(R.id.inputPwd2);

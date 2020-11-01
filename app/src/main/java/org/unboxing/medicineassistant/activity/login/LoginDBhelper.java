@@ -11,16 +11,16 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 
-public class DBhelper extends SQLiteOpenHelper {
+public class LoginDBhelper extends SQLiteOpenHelper {
     private static int myVersion = 1;
 
 
-    public DBhelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public LoginDBhelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
         //context是上下文对象，name数据库名，factory可选的游标过程，version是版本
     }
 
-    public DBhelper(Context context, String name) {
+    public LoginDBhelper(Context context, String name) {
         this(context, name, null, myVersion);
     }
 

@@ -18,7 +18,7 @@ public class ChangePwdActivity extends AppCompatActivity {
     private EditText pwd02;
     private Button updateBtn;
     private String userEmail;
-    private DBhelper dbhelper = new DBhelper(ChangePwdActivity.this,"medicine_db");
+    private LoginDBhelper dbhelper = new LoginDBhelper(ChangePwdActivity.this,"medicine_db");
     private SQLiteDatabase mydb;
 
     @Override
