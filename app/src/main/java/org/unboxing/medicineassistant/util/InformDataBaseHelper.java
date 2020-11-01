@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant.DAO;
+package org.unboxing.medicineassistant.util;
 
 
 import android.content.Context;

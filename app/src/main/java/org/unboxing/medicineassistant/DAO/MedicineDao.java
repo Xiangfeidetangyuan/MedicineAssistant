@@ -8,6 +8,7 @@ import android.util.Log;
 
 
 import org.unboxing.medicineassistant.entity.medicine;
+import org.unboxing.medicineassistant.util.MedicineDataBaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,7 @@ public class MedicineDao extends IMedicineDao {
      * 例如"3,4"(从第4条数据开始取，取4条数据))
      *
      *
-     * @return
+     *
      */
     @Override
    public long addMedicine(medicine drug) {

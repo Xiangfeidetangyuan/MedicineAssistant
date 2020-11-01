@@ -4,10 +4,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 
 import org.unboxing.medicineassistant.entity.Inform;
+import org.unboxing.medicineassistant.util.InformDataBaseHelper;
 
 import java.util.ArrayList;
 import java.util.Date;
