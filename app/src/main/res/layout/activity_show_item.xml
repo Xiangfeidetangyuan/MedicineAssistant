@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:id="@+id/my_linear"
+        android:id="@+id/my_item_linear"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
@@ -21,7 +21,7 @@
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginVertical="10dp"
             android:textStyle="bold"
             android:text="药物名称:"
@@ -32,7 +32,7 @@
             android:id="@+id/tv_itemname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="10dp"
             android:layout_marginVertical="10dp"
             android:text=""
             android:textStyle="bold"
@@ -43,8 +43,8 @@
     <RadioGroup
         android:id="@+id/RG"
         android:layout_width="wrap_content"
-        android:layout_below="@+id/my_linear"
-        android:layout_height="40dp"
+        android:layout_below="@+id/my_item_linear"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
         android:background="@drawable/listall_circle"
@@ -55,6 +55,8 @@
         <RadioButton
             android:id="@+id/rb_all"
             android:layout_width="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="5dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="#000000"
@@ -63,6 +65,8 @@
         <RadioButton
             android:id="@+id/rb4"
             android:layout_width="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="5dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="#C0392B"
@@ -71,6 +75,8 @@
         <RadioButton
             android:id="@+id/rb3"
             android:layout_width="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="5dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="#E74C3C"
@@ -79,6 +85,8 @@
         <RadioButton
             android:id="@+id/rb2"
             android:layout_width="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="5dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="#DC7633"
@@ -87,6 +95,8 @@
         <RadioButton
             android:id="@+id/rb1"
             android:layout_width="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="5dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="#58D68D"
@@ -106,8 +116,8 @@
 
         <ListView
             android:id="@+id/ListView"
-            android:layout_width="375dp"
-            android:layout_height="wrap_content" >
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
         </ListView>
 
     </LinearLayout>
