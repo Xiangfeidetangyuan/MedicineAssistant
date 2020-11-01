@@ -32,9 +32,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        TextView pwdLabel = findViewById(R.id.text2);
-        String strMsg = "请输入密码<br /><small>(不少于6位)</small>";
-        pwdLabel.setText(Html.fromHtml(strMsg));
         dbhelper = new DBhelper(RegisterActivity.this, "medicine_db");
         userNameEdit = findViewById(R.id.inputUserName);
         pwdEdit1 = findViewById(R.id.inputPwd1);
