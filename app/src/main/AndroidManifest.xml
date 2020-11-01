@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icon"
@@ -12,7 +13,6 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.setinform.DIYInformActivity"></activity>
         <activity android:name=".activity.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.setinform.DIYInformActivity"></activity>
         <activity android:name=".activity.login.ChangePwdActivity" />
         <activity android:name=".activity.login.ForgetPwdActivity" />
         <activity android:name=".activity.login.RegisterActivity" />
