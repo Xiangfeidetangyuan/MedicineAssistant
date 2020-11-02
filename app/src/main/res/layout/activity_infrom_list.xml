@@ -25,7 +25,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginHorizontal="10dp"
-        android:background="@drawable/list_circle"
+        android:background="@drawable/listtime_circle"
         >
     <ListView
         android:id="@+id/infrom_list_listview"
