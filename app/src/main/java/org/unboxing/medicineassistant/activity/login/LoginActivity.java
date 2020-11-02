@@ -92,35 +92,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 userName = userNameEdit.getText().toString();
                 pwd = passwordEdit.getText().toString();
-                Toast.makeText(LoginActivity.this, "点击了注册按钮", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
-
-
-//                mydb = dbhelper.getWritableDatabase();
-//                ContentValues values = new ContentValues();
-//                values.put("userName",userName);
-//                values.put("userPwd",pwd);
-//                values.put("userEmail","aaa.com");
-//                //数据库执行插入命令
-//                mydb.insert("user", null, values);
-//                Log.d("bbb","插入数据");
-//
-//                Cursor cursor = mydb.query("user", new String[]{"userName","userPwd","userEmail"}, null, null, null, null, null);
-//                //利用游标遍历所有数据对象
-//                //为了显示全部，把所有对象连接起来，放到TextView中
-//                String textview_data = "";
-//                while(cursor.moveToNext()){
-//                    String name = cursor.getString(cursor.getColumnIndex("userName"));
-//                    String pwd = cursor.getString(cursor.getColumnIndex("userPwd"));
-//                    String email = cursor.getString(cursor.getColumnIndex("userEmail"));
-//                    textview_data = textview_data + "\n" + name + " " + pwd + " " + email+ " " ;
-//                }
-//                Log.d("result",textview_data);
-//                // 关闭游标，释放资源
-//                cursor.close();
-//
-//                mydb.close();
             }
         });
 

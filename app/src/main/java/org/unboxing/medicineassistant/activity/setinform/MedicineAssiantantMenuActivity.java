@@ -9,13 +9,12 @@ import android.view.View;
 import android.widget.Button;
 
 import org.unboxing.medicineassistant.R;
+import org.unboxing.medicineassistant.activity.AboutUsActivity;
 import org.unboxing.medicineassistant.activity.interaction.ListAllActivity;
 
 
 public class MedicineAssiantantMenuActivity extends AppCompatActivity {
 
-
-    private static final String TAG = "ceshi";
     private String userName; //用户名
 
     @Override
@@ -47,6 +46,14 @@ public class MedicineAssiantantMenuActivity extends AppCompatActivity {
             }
         });
 
+        Button aboutUsButton = (Button)findViewById(R.id.aboutus_button);
+        aboutUsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MedicineAssiantantMenuActivity.this, AboutUsActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.AboutUsActivity"></activity>
         <activity android:name=".activity.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.setinform.DIYInformActivity"></activity>
+        <activity android:name=".activity.setinform.DIYInformActivity" />
         <activity android:name=".activity.login.ChangePwdActivity" />
         <activity android:name=".activity.login.ForgetPwdActivity" />
         <activity android:name=".activity.login.RegisterActivity" />
@@ -29,7 +30,7 @@
         <activity android:name=".activity.setinform.SearchMedicineActivity" />
         <activity android:name=".activity.setinform.InformListActivity" />
         <activity android:name=".activity.setinform.SetInformActivity" />
-        <activity android:name=".activity.interaction.ListAllActivity"/>
+        <activity android:name=".activity.interaction.ListAllActivity" />
         <activity android:name=".activity.interaction.ShowItemActivity" />
     </application>
 
