@@ -46,8 +46,7 @@
 
             <ListView
                 android:id="@+id/listView_medicine"
-
-                android:background="@color/commonbackground"
+                android:background="@drawable/listall_circle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
