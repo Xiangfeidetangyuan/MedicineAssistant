@@ -3,11 +3,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
+    <RelativeLayout
         android:layout_alignParentTop="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:id="@+id/line1"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center">
@@ -18,16 +20,18 @@
         android:iconifiedByDefault="false"
         android:background="@drawable/searchview_line"
         android:queryHint="请输入药品名"/>
-    </LinearLayout>
+    </RelativeLayout>
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="550dp"
+    <RelativeLayout
+
+        android:id="@+id/search_list_relative"
+        android:layout_above="@id/new_inform_button_relativelayout"
         android:layout_below="@+id/line1"
-        android:layout_gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/list_circle">
@@ -35,21 +39,29 @@
         <ListView
             android:id="@+id/adapter_listview"
             android:layout_width="match_parent"
-            android:layout_height="541dp">
+            android:layout_height="match_parent">
 
         </ListView>
-    </LinearLayout>
+    </RelativeLayout>
 
-
-    <Button
-        android:id="@+id/notfindmedicine_textview"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/new_inform_button_relativelayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+
+        >
+    <Button
+        android:id="@+id/notfindmedicine_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginVertical="20dp"
-        android:text="当前搜索不存在,点击设置自定义提醒" />
+        android:background="#ECF0F1"
+        android:text="设置自定义提醒"
+        />
+        >
+    </RelativeLayout>
 
 
 </RelativeLayout>

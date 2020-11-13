@@ -9,8 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 
+import org.unboxing.medicineassistant.activity.interaction.ListAllActivity;
 import org.unboxing.medicineassistant.dao.MedicineDao;
 import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.entity.medicine;
@@ -45,7 +47,7 @@ public class SearchMedicineActivity extends AppCompatActivity {
         me = new MedicineDao(this);
         medicinelist = me.listMedicine();
         notfindmedicine_button=(Button) findViewById(R.id.notfindmedicine_textview);
-        notfindmedicine_button.setVisibility(View.INVISIBLE);//默认隐藏
+
 
 
         ArrayList<String> li = new ArrayList<>();
@@ -74,7 +76,7 @@ public class SearchMedicineActivity extends AppCompatActivity {
                     intent.putExtra("userName",userName);
                     startActivity(intent);
                 }else{
-                    notfindmedicine_button.setVisibility(View.VISIBLE);
+                    Toast.makeText(SearchMedicineActivity.this, "当前搜索不存在", Toast.LENGTH_SHORT).show();
 
 
                 }
