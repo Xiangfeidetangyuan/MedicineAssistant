@@ -11,7 +11,7 @@ import android.widget.ListView;
 import android.widget.SearchView;
 
 
-import org.unboxing.medicineassistant.DAO.MedicineDao;
+import org.unboxing.medicineassistant.dao.MedicineDao;
 import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.entity.medicine;
 

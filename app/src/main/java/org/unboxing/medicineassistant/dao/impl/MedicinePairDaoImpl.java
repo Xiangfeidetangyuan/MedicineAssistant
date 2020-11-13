@@ -1,10 +1,10 @@
-package org.unboxing.medicineassistant.DAO.impl;
+package org.unboxing.medicineassistant.dao.impl;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import org.unboxing.medicineassistant.DAO.MedicinePairDao;
+import org.unboxing.medicineassistant.dao.MedicinePairDao;
 import org.unboxing.medicineassistant.entity.MedicinePair;
 import org.unboxing.medicineassistant.util.DBHelper;
 

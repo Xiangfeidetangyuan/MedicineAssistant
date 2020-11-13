@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 
-import org.unboxing.medicineassistant.DAO.InformDao;
+import org.unboxing.medicineassistant.dao.InformDao;
 import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.entity.Inform;
 

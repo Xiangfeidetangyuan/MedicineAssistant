@@ -1,4 +1,4 @@
-package org.unboxing.medicineassistant.DAO;
+package org.unboxing.medicineassistant.dao;
 
 
 import org.unboxing.medicineassistant.entity.MedicinePair;

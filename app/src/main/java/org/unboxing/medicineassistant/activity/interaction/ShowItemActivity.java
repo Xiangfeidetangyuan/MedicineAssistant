@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.unboxing.medicineassistant.DAO.MedicinePairDao;
-import org.unboxing.medicineassistant.DAO.impl.MedicinePairDaoImpl;
+import org.unboxing.medicineassistant.dao.MedicinePairDao;
+import org.unboxing.medicineassistant.dao.impl.MedicinePairDaoImpl;
 import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.entity.InteractionLevelInfo;
 import org.unboxing.medicineassistant.entity.MedicinePair;

@@ -19,7 +19,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 
-import org.unboxing.medicineassistant.DAO.InformDao;
+import org.unboxing.medicineassistant.dao.InformDao;
 import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.entity.Inform;
 import java.util.List;

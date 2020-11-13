@@ -21,7 +21,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 
-import org.unboxing.medicineassistant.DAO.InformDao;
+import org.unboxing.medicineassistant.dao.InformDao;
 import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.entity.Inform;
 import org.unboxing.medicineassistant.entity.medicine;

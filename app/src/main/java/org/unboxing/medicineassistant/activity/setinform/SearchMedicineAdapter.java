@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 
-import org.unboxing.medicineassistant.DAO.MedicineDao;
+import org.unboxing.medicineassistant.dao.MedicineDao;
 import org.unboxing.medicineassistant.R;
 import org.unboxing.medicineassistant.entity.medicine;
 
