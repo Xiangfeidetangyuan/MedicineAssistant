@@ -8,4 +8,6 @@
     <color name="lightgray">#B5B5B5</color>
     <color name="gray">#5A5A5A</color>
     <color name="transparent">#00000000</color>
+    <color name="commonbackground">#F1F0f0</color>
+
 </resources>
