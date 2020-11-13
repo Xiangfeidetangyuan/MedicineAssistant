@@ -10,6 +10,6 @@
 
     <!-- Shape的描边，下面指定了描边的宽度和描边的颜色 -->
     <stroke android:color="#A9A9A9"
-        android:width="2dp"></stroke>
+        android:width="0dp"></stroke>
 
 </shape>
