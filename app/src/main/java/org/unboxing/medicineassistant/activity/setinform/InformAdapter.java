@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -33,14 +34,16 @@ public class InformAdapter extends ArrayAdapter<Inform>
         private String userName; //用户名
         InformDao informdao = new InformDao(getContext());
         private int resourceID;
+        private  List<Inform> object;
 
      public InformAdapter(Context context, int resource, List<Inform> objects,String username) {
         super(context, resource,objects);
         resourceID=resource;
         userName=username;
+        object=objects;
 
     }
-        public View getView(int position , View  convertView, ViewGroup parent){
+     public View getView(final int position , View  convertView, ViewGroup parent){
 
         final Inform inform=getItem(position);//获取当前项的inform实例
         View view = LayoutInflater.from(getContext()).inflate(resourceID,parent,false);
@@ -51,8 +54,6 @@ public class InformAdapter extends ArrayAdapter<Inform>
 
         Log.d("时间是",inform.getHour()+" ,"+inform.getMinute());
         inform_time.setText(inform.getHour()+":"+inform.getMinute());
-
-
         infrom_context.setText(inform.getTitle()+":"+inform.getContent());
         Switch statusbutton = (Switch)view.findViewById(R.id.switch1);
         if(inform.getStatus()==1)
@@ -74,7 +75,11 @@ public class InformAdapter extends ArrayAdapter<Inform>
         bn_delete.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     delInfrom(inform.getInformid());
-                    ((Activity)getContext()).finish();
+                    object.remove(position);
+                    notifyDataSetChanged();
+                //  ((Activity)getContext()).finish();
+
+
 
                 }
             });

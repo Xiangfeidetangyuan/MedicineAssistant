@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -18,6 +19,7 @@ import java.util.List;
 
 public class InformListActivity extends AppCompatActivity {
     private String userName; //用户名
+    private InformAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +28,7 @@ public class InformListActivity extends AppCompatActivity {
         this.userName =i.getStringExtra("userName");
         InformDao informdao = new InformDao(this);
         List<Inform> informList = informdao.listInform(userName);
-        InformAdapter adapter= new InformAdapter(InformListActivity.this,R.layout.inform_item, informList,userName);
+        adapter= new InformAdapter(InformListActivity.this,R.layout.inform_item, informList,userName);
         ListView listView=(ListView) findViewById(R.id.infrom_list_listview);
         listView.setAdapter(adapter);
 
