@@ -13,11 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
+        android:background="@color/commonbackground"
         android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:background="@color/commonbackground"
             android:layout_margin="5dp"
             android:gravity="center"
             android:text="药品提醒"
@@ -40,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_centerHorizontal="true"
-            android:background="@color/footer"
+            android:background="@color/commonbackground"
             android:text="新建药品提醒" />
     </RelativeLayout>
 

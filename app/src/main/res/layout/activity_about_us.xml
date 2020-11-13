@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:background="#ECF0F1"
+        android:background="@color/commonbackground"
         android:gravity="center">
         <ImageView
             android:id="@+id/iv_list_all"
@@ -88,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#6AED83"
+        android:background="@color/commonbackground"
         android:gravity="center">
 
         <Button

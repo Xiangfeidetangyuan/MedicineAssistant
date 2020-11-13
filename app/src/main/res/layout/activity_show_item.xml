@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#6AED83"
+        android:background="@color/commonbackground"
         android:gravity="center">
 
         <Button
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="#ECF0F1"
+            android:background="@color/commonbackground"
             android:layout_centerHorizontal="true"
             android:onClick="checkItemInstruction"
             android:text="查看说明说明"
@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:background="#ECF0F1"
+        android:background="@color/commonbackground"
         android:gravity="center">
         <ImageView
             android:id="@+id/iv_list_all"
@@ -166,7 +166,8 @@
             <ListView
                 android:id="@+id/ListView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:background="@color/commonbackground">
             </ListView>
         </LinearLayout>
     </RelativeLayout>
