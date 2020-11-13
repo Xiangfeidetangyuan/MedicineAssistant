@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         Cursor cursor = mydb.query("user", new String[]{"userName", "userPwd", "userEmail"}, null, null, null, null, null);
         //利用游标遍历所有数据对象
         //为了显示全部，把所有对象连接起来，放到TextView中
-        String textview_data = "\n";
+       /* String textview_data = "\n";
         while (cursor.moveToNext()) {
             String name = cursor.getString(cursor.getColumnIndex("userName"));
             String pwd = cursor.getString(cursor.getColumnIndex("userPwd"));
@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         cursor.close();
         mydb.close();
         Toast.makeText(LoginActivity.this, textview_data, Toast.LENGTH_LONG).show();
-
+*/
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

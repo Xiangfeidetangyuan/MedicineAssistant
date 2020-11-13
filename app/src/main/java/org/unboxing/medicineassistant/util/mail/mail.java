@@ -17,7 +17,17 @@ public class mail {
             }
         }).start();
     }
-
+    public static void send(String toAdd,String message,String subject){
+        final MailInfo mailInfo = creatMail(toAdd,message);
+        mailInfo.setSubject(subject);
+        final MailSender sms = new MailSender();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                sms.sendTextMail(mailInfo);
+            }
+        }).start();
+    }
 
     private static MailInfo creatMail(String toAdd,String code) {
         final MailInfo mailInfo = new MailInfo();
