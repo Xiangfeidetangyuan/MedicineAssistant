@@ -25,7 +25,7 @@
 
         <Switch
             android:id="@+id/switch1"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="43dp"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="140dp"
@@ -50,7 +50,7 @@
         <TextView
             android:id="@+id/infrom_context"
             android:layout_width="273dp"
-            android:layout_height="40dp"
+            android:layout_height="43dp"
             android:layout_below="@+id/line2"
             android:gravity="center"
             android:textSize="15sp"
@@ -58,17 +58,19 @@
 
         <ImageButton
             android:id="@+id/imageButton_delete"
-            android:layout_width="41dp"
-            android:layout_height="35dp"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
             android:scaleType="centerInside"
-            app:srcCompat="@mipmap/delete" />
+            app:srcCompat="@android:drawable/ic_menu_delete" />
 
         <ImageButton
             android:id="@+id/imageButton_edit"
-            android:layout_width="41dp"
-            android:layout_height="35dp"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
             android:scaleType="centerInside"
-            app:srcCompat="@mipmap/edit" />
+            app:srcCompat="@android:drawable/ic_menu_edit" />
     </LinearLayout>
+
+
 
 </RelativeLayout>

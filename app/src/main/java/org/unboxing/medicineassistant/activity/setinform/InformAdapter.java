@@ -78,9 +78,6 @@ public class InformAdapter extends ArrayAdapter<Inform>
                     object.remove(position);
                     notifyDataSetChanged();
                 //  ((Activity)getContext()).finish();
-
-
-
                 }
             });
 

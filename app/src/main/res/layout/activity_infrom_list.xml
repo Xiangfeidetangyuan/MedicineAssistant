@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:background="#ECF0F1"
         android:gravity="center">
 
         <TextView
@@ -33,7 +32,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#6AED83"
         android:gravity="center">
 
         <Button
@@ -41,8 +39,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="#ECF0F1"
             android:layout_centerHorizontal="true"
+            android:background="@color/footer"
             android:text="新建药品提醒" />
     </RelativeLayout>
 
