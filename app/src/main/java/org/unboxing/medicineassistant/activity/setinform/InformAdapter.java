@@ -1,9 +1,11 @@
 package org.unboxing.medicineassistant.activity.setinform;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -74,9 +76,7 @@ public class InformAdapter extends ArrayAdapter<Inform>
         ImageButton bn_delete = (ImageButton)view.findViewById(R.id.imageButton_delete);
         bn_delete.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    delInfrom(inform.getInformid());
-                    object.remove(position);
-                    notifyDataSetChanged();
+                    showResetDialog("确定要删除本提醒？", position);
                 //  ((Activity)getContext()).finish();
                 }
             });
@@ -112,7 +112,23 @@ public class InformAdapter extends ArrayAdapter<Inform>
 
         }
 
-
+        public void showResetDialog(String msg, final int pos) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+            builder.setTitle("删除提醒？");
+            builder.setMessage(msg);
+            builder.setIcon(R.mipmap.icon);
+            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Inform inform=getItem(pos);
+                    delInfrom(inform.getInformid());
+                    object.remove(pos);
+                    notifyDataSetChanged();
+                }
+            });
+            builder.setNegativeButton("取消", null);
+            builder.show();
+        }
 
     }
 
