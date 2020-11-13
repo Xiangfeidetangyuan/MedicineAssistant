@@ -6,55 +6,116 @@
     android:layout_height="match_parent"
     tools:context=".activity.login.LoginActivity">
 
-    <TextView
-        android:id="@+id/user"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/main_area_main"
+        android:layout_above="@id/footer_main"
+        android:layout_below="@id/header_main">
+
+        <ImageView
+            android:id="@+id/iv_user_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:src="@mipmap/user_avator" />
+
+        <TextView
+            android:id="@+id/tv_user_info_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_user_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textColor="#000"
+            android:text="用户信息" />
+        <RelativeLayout
+            android:id="@+id/function_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_user_info_main"
+            android:layout_marginBottom="100dp"
+            android:gravity="center">
+            <Button
+                android:id="@+id/query"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@id/infrom_control"
+                android:drawableLeft="@mipmap/medicine_interaction"
+                android:drawablePadding="10dp"
+                style="@style/RoundedCornerBtnWithRightArrow"
+                android:text="禁忌查询"
+                android:textColor="#000" />
+            <Button
+                android:id="@+id/infrom_control"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/aboutus_button"
+                android:drawableLeft="@mipmap/alter"
+                android:drawablePadding="10dp"
+                android:layout_centerHorizontal="true"
+
+                style="@style/RoundedCornerBtnWithRightArrow"
+                android:text="用药提醒"
+                android:textColor="#000" />
+
+            <Button
+                android:id="@+id/aboutus_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:drawableLeft="@mipmap/about_us"
+                android:drawablePadding="10dp"
+                style="@style/RoundedCornerBtnWithRightArrow"
+                android:text="关于我们"
+                android:textColor="#000" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/header_main"
+
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="#ECF0F1"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/tv_head_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:textColor="#000"
+            android:text="用药助手"
+            />
+    </RelativeLayout>
+
+    <!-- Footer aligned to bottom -->
+    <RelativeLayout
+        android:id="@+id/footer_main"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:text="用药助手"
-        android:textSize="40sp"
-        android:textColor="#3f3f3f"
-         />
-
-    <Button
-        android:id="@+id/query"
-        android:layout_below="@+id/user"
-        android:layout_width="195dp"
-        android:layout_height="70dp"
-        android:gravity="center"
-        android:layout_marginTop="40dp"
-        android:layout_centerHorizontal="true"
-        android:text="禁忌查询"
-        android:textColor="#FFF"
-        android:textSize="30sp"
-        android:background="@drawable/button_style" />
-
-    <Button
-        android:id="@+id/infrom_control"
-        android:layout_below="@id/query"
-        android:layout_width="195dp"
-        android:layout_height="70dp"
-        android:gravity="center"
-        android:text="用药提醒"
-        android:textColor="#FFF"
-        android:textSize="30sp"
-        android:layout_marginTop="40dp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/button_style"/>
-
-    <Button
-        android:id="@+id/aboutus_button"
-        android:text="关于我们?"
         android:layout_alignParentBottom="true"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:textSize="18dp"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_centerHorizontal="true"
-        android:background="@null"/>
+        android:background="#6AED83"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/new_inform_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#ECF0F1"
+            android:layout_centerHorizontal="true"
+            android:onClick="getMainInstruction"
+            android:text="使用说明"
+            tools:ignore="OnClick" />
+    </RelativeLayout>
 
 </RelativeLayout>
