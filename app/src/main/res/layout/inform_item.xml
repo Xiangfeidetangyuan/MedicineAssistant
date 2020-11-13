@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/line2"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
@@ -17,9 +18,9 @@
             android:id="@+id/inform_item_time_textview"
             android:layout_width="143dp"
             android:layout_height="49dp"
+            android:gravity="center"
             android:textSize="34sp"
             android:textStyle="bold"
-            android:gravity="center"
 
             />
 
@@ -27,50 +28,55 @@
             android:id="@+id/switch1"
             android:layout_width="70dp"
             android:layout_height="43dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="140dp"
-            android:layout_marginEnd="20dp"
+            android:layout_alignParentRight="true"
+
             android:textOff="关闭"
             android:textOn="开启" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
-
-
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_below="@+id/line2"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_below="@+id/line1"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        >
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp">
+
         <TextView
             android:id="@+id/infrom_context"
-            android:layout_width="273dp"
+            android:layout_width="match_parent"
+            android:layout_toStartOf="@+id/imageButton_delete"
             android:layout_height="43dp"
-            android:layout_below="@+id/line2"
+
             android:gravity="center"
-            android:textSize="15sp"
-            />
+            android:textSize="15sp" />
 
         <ImageButton
             android:id="@+id/imageButton_delete"
-            android:layout_width="43dp"
-            android:layout_height="43dp"
-            android:scaleType="centerInside"
-            app:srcCompat="@android:drawable/ic_menu_delete" />
+            android:layout_toStartOf="@+id/imageButton_edit"
+            android:scaleType="centerCrop"
+            android:layout_marginRight="5dp"
+
+            android:background="@color/transparent"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/delete"
+            />
 
         <ImageButton
+            android:layout_alignParentRight="true"
+        android:background="@color/transparent"
+            android:scaleType="centerCrop"
+            android:layout_centerVertical="true"
             android:id="@+id/imageButton_edit"
-            android:layout_width="43dp"
-            android:layout_height="43dp"
-            android:scaleType="centerInside"
-            app:srcCompat="@android:drawable/ic_menu_edit" />
-    </LinearLayout>
-
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/edit"
+             />
+    </RelativeLayout>
 
 
 </RelativeLayout>

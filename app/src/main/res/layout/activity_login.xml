@@ -31,26 +31,50 @@
 
     </LinearLayout>
 
-
+    <TextView
+       android:id="@+id/userNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="用户名"
+        android:textColor="#3f3f3f"
+        android:textSize="12sp"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="30dp"
+        android:layout_alignStart="@+id/inputUserName"
+        />
     <EditText
+        android:drawableLeft="@mipmap/user"
+        android:drawablePadding="10dp"
         android:id="@+id/inputUserName"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_below="@+id/logo"
+        android:layout_height="50dp"
+        android:layout_below="@+id/userNameLabel"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:ems="13"
-        android:hint="  请输入账号" />
+        android:ems="14"
+        android:hint="请输入账号" />
 
+    <TextView
+        android:id="@+id/pwdLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="密码"
+        android:textColor="#3f3f3f"
+        android:layout_marginTop="15dp"
+        android:textSize="12sp"
+        android:layout_below="@+id/inputUserName"
+        android:layout_alignStart="@+id/inputUserName"
+        />
 
     <EditText
+        android:drawableLeft="@mipmap/pwd"
+        android:drawablePadding="10dp"
         android:id="@+id/inputPwd"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_below="@+id/inputUserName"
+        android:layout_height="50dp"
+        android:layout_below="@+id/pwdLabel"
         android:layout_centerHorizontal="true"
-        android:ems="13"
-        android:hint="  请输入密码"
+        android:ems="14"
+        android:hint="请输入密码"
         android:inputType="textPassword" />
 
 
