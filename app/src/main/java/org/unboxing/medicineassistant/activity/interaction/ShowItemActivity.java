@@ -8,6 +8,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.unboxing.medicineassistant.dao.MedicinePairDao;
@@ -43,6 +44,17 @@ public class ShowItemActivity extends AppCompatActivity {
         initView();
         initLsit();
         initButtons();
+    }
+
+    public void checkItemInstruction(View view){
+        show();
+    }
+
+    private void show(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this).setIcon(R.mipmap.icon).setTitle("药品禁忌查询使用说明")
+                .setMessage("您可以选择药品的相互作用强度来查找与本药品具有相互作用的药品\n禁忌：药品之间相互作用非常强\n严重：药品之间具有严重的相互作用\n中度：药品之间具有中度的相互作用\n轻度：药品之间有轻微的相互作用").
+                        setPositiveButton("知道了", null);
+        builder.show();
     }
 
     public void initButtons(){

@@ -7,119 +7,170 @@
     android:orientation="vertical"
     tools:context=".activity.interaction.ShowItemActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:id="@+id/my_item_linear"
+    <!-- Footer aligned to bottom -->
+    <RelativeLayout
+        android:id="@+id/footer_item_interaction"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:background="@drawable/listall_circle"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:layout_alignParentBottom="true"
+        android:background="#6AED83"
+        android:gravity="center">
 
+        <Button
+            android:id="@+id/new_inform_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#ECF0F1"
+            android:layout_centerHorizontal="true"
+            android:onClick="checkItemInstruction"
+            android:text="查看说明说明"
+            tools:ignore="OnClick" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/header_item_interaction"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="#ECF0F1"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/iv_list_all"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/tv_and"
+            android:src="@mipmap/icon"/>
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/tv_and"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginVertical="10dp"
+            android:layout_centerVertical="true"
+            android:textColor="#000"
             android:textStyle="bold"
-            android:text="药物名称:"
-            android:textColor="#000000"
-            android:textSize="20sp" />
-
+            android:text="与 "/>
         <TextView
             android:id="@+id/tv_itemname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_marginVertical="10dp"
+            android:layout_centerVertical="true"
             android:text=""
-            android:textStyle="bold"
             android:textColor="#000000"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <RadioGroup
-        android:id="@+id/RG"
-        android:layout_width="wrap_content"
-        android:layout_below="@+id/my_item_linear"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/listall_circle"
-        android:layout_marginTop="10dp"
-        android:checkedButton="@id/rb_all"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rb_all"
-            android:layout_width="wrap_content"
-            android:layout_marginVertical="5dp"
-            android:layout_marginHorizontal="5dp"
-            android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:layout_toRightOf="@id/tv_and" />
+        <TextView
+            android:id="@+id/tv_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text=" 具有相互作用的药品"
             android:textColor="#000000"
-            android:text="全部"/>
-
-        <RadioButton
-            android:id="@+id/rb4"
-            android:layout_width="wrap_content"
-            android:layout_marginVertical="5dp"
-            android:layout_marginHorizontal="5dp"
-            android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textColor="#C0392B"
-            android:text="禁忌"/>
+            android:layout_toRightOf="@id/tv_itemname" />
+    </RelativeLayout>
 
-        <RadioButton
-            android:id="@+id/rb3"
-            android:layout_width="wrap_content"
-            android:layout_marginVertical="5dp"
-            android:layout_marginHorizontal="5dp"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#E74C3C"
-            android:text="严重"/>
-
-        <RadioButton
-            android:id="@+id/rb2"
-            android:layout_width="wrap_content"
-            android:layout_marginVertical="5dp"
-            android:layout_marginHorizontal="5dp"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#DC7633"
-            android:text="中度"/>
-
-        <RadioButton
-            android:id="@+id/rb1"
-            android:layout_width="wrap_content"
-            android:layout_marginVertical="5dp"
-            android:layout_marginHorizontal="5dp"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#58D68D"
-            android:text="轻度"/>
-
-    </RadioGroup>
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@id/RG"
-        android:layout_gravity="center"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/list_circle">
+        android:layout_height="match_parent"
+        android:layout_below="@id/header_item_interaction"
+        android:layout_above="@id/footer_item_interaction">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/my_item_linear"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:background="@drawable/listall_circle"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
-        <ListView
-            android:id="@+id/ListView"
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/RG"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/my_item_linear"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/listall_circle"
+            android:layout_marginTop="10dp"
+            android:checkedButton="@id/rb_all"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_all"
+                android:layout_width="wrap_content"
+                android:layout_marginVertical="5dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:text="全部"/>
+
+            <RadioButton
+                android:id="@+id/rb4"
+                android:layout_width="wrap_content"
+                android:layout_marginVertical="5dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#C0392B"
+                android:text="禁忌"/>
+
+            <RadioButton
+                android:id="@+id/rb3"
+                android:layout_width="wrap_content"
+                android:layout_marginVertical="5dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#E74C3C"
+                android:text="严重"/>
+
+            <RadioButton
+                android:id="@+id/rb2"
+                android:layout_width="wrap_content"
+                android:layout_marginVertical="5dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#DC7633"
+                android:text="中度"/>
+
+            <RadioButton
+                android:id="@+id/rb1"
+                android:layout_width="wrap_content"
+                android:layout_marginVertical="5dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#58D68D"
+                android:text="轻度"/>
+
+        </RadioGroup>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-        </ListView>
+            android:layout_height="fill_parent"
+            android:layout_below="@id/RG"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/list_circle">
 
-    </LinearLayout>
+            <ListView
+                android:id="@+id/ListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </ListView>
+        </LinearLayout>
+    </RelativeLayout>
+
+
 
 </RelativeLayout>

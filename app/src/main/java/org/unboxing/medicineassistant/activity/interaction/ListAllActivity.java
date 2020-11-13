@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -41,6 +42,17 @@ public class ListAllActivity extends AppCompatActivity {
         this.setTitle("药物相互作用查询表");
     }
 
+    public void checkInstruction(View view){
+        show();
+    }
+
+    private void show(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this).setIcon(R.mipmap.icon).setTitle("药品禁忌查询使用说明")
+                .setMessage("在列表中选择一项药品即可查看与所选药品存在相互作用的药品．\n您也可以在搜索框中进行搜索．").
+                        setPositiveButton("知道了", null);
+        builder.show();
+    }
+
     public void init(){
         listView = findViewById(R.id.listView_medicine);
     }
@@ -63,7 +75,6 @@ public class ListAllActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 String medicineName = arg0.getItemAtPosition(arg2).toString();
-                Toast.makeText(ListAllActivity.this, "当前药物："+ medicineName, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ListAllActivity.this, ShowItemActivity.class);
                 intent.putExtra("main_medicine", medicineName);
                 startActivity(intent);
@@ -82,7 +93,6 @@ public class ListAllActivity extends AppCompatActivity {
                 if(checkMap.get(query)!=null){
                     String medicineName = query;
                     Intent intent = new Intent(ListAllActivity.this, ShowItemActivity.class);
-                    Toast.makeText(ListAllActivity.this, "当前药物："+medicineName, Toast.LENGTH_SHORT).show();
                     intent.putExtra("main_medicine", medicineName);
                     startActivity(intent);
                 }else{
