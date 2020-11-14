@@ -43,7 +43,6 @@ public abstract class IMedicineDao {
      * @return
      */
     abstract List<medicine> listMedicine();
-    abstract  medicine getmedicinebyname(String name);
 }
 
 

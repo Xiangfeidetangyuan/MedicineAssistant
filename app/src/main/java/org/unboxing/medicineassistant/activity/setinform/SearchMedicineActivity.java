@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -48,37 +49,23 @@ public class SearchMedicineActivity extends AppCompatActivity {
         medicinelist = me.listMedicine();
         notfindmedicine_button=(Button) findViewById(R.id.notfindmedicine_textview);
 
-
-
-        ArrayList<String> li = new ArrayList<>();
         for(medicine item:medicinelist){
-            li.add(item.getName());
             checkMap.put(item.getName(),item);
         }
-
-        Collections.sort(li,CHINA_COMPARE);
-        adapter = new SearchMedicineAdapter(this,R.layout.medicine_item,li,userName);
+        adapter = new SearchMedicineAdapter(this,R.layout.medicine_item,medicinelist,userName);
         mListView.setAdapter(adapter);
         mListView.setTextFilterEnabled(true);
 
-
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
             // 当点击搜索按钮时触发该方法
             @Override
             public boolean onQueryTextSubmit(String query) {
+
                 if(checkMap.get(query)!=null){
-                    String tempName = checkMap.get(query).getName();
-                    Intent intent = new Intent(SearchMedicineActivity.this, SetInformActivity.class);
-                    medicine medicinedemo = me.getmedicinebyname(tempName);
-                    Bundle bundle=new Bundle();
-                    bundle.putSerializable("Medicine",medicinedemo);
-                    intent.putExtras(bundle);
-                    intent.putExtra("userName",userName);
-                    startActivity(intent);
+                    adapter.getFilter().filter(query);
                 }else{
                     Toast.makeText(SearchMedicineActivity.this, "当前搜索不存在", Toast.LENGTH_SHORT).show();
-
-
                 }
                 return false;
             }
@@ -86,13 +73,11 @@ public class SearchMedicineActivity extends AppCompatActivity {
             // 当搜索内容改变时触发该方法
             @Override
             public boolean onQueryTextChange(String newText) {
+
                 if (!TextUtils.isEmpty(newText)){
                     adapter.getFilter().filter(newText);
                 }else{
-
-                    mListView.clearTextFilter();
-
-                    adapter.getFilter().filter(newText);
+                    adapter.getFilter().filter("");
                 }
                 return false;
             }

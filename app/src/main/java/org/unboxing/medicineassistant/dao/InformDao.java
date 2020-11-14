@@ -59,7 +59,6 @@ public class InformDao extends IInformDao {
         SQLiteDatabase writableDatabase=mInformDataBaseHelper.getWritableDatabase();
         writableDatabase.execSQL("Delete From "+InformDataBaseHelper.TABLE_NAME_INFROM+" Where "+InformDataBaseHelper.INFORMID+" = "+id);
         writableDatabase.close();
-
         return 0;
     }
 

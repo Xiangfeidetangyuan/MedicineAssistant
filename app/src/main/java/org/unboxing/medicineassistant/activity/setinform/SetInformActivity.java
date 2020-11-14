@@ -54,7 +54,6 @@ public class SetInformActivity extends AppCompatActivity {
         Intent intent=getIntent();
         this.userName =intent.getStringExtra("userName");
 
-
         //获取传入的medicine对象
         medicinedemo = (medicine) getIntent().getSerializableExtra("Medicine");
 

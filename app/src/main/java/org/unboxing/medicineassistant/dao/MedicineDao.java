@@ -12,6 +12,7 @@ import org.unboxing.medicineassistant.util.MedicineDataBaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.jar.Attributes;
 
 public class MedicineDao extends IMedicineDao {
     private static final String TAG ="dao" ;
@@ -52,18 +53,19 @@ public class MedicineDao extends IMedicineDao {
 
     @Override
    public int delMedicineByName(String name) {
-
-
-
+        String sql = "DELETE FROM "+MedicineDataBaseHelper.TABLE_NAME_MEDICINE+" where "+MedicineDataBaseHelper.MEDICINE_NAME+" = " +name;
+        SQLiteDatabase db = mMedicineDataBaseHelper.getWritableDatabase();
+        db.execSQL(sql);
+        db.close();
         return 0;
     }
 
     @Override
    public List<medicine> getUserByName(String name) {
         SQLiteDatabase readableDataBase =mMedicineDataBaseHelper.getReadableDatabase();
-        //String queueSql= String.format("select * from %s where%s = ?", MedicineDataBaseHelper.TABLE_NAME_MEDICINE, MedicineDataBaseHelper.MEDICINE_NAME);
-   //现在支持以name开头的模糊查找
-        Cursor cursor=readableDataBase.query(MedicineDataBaseHelper.TABLE_NAME_MEDICINE,null,MedicineDataBaseHelper.MEDICINE_NAME+" LIKE ? ",new String[]{"%"+name+"%"},null,null,null);
+        String sql = "SELECT * FROM "+MedicineDataBaseHelper.TABLE_NAME_MEDICINE+"where "+ MedicineDataBaseHelper.MEDICINE_NAME+" = "+name;
+        Cursor cursor = readableDataBase.rawQuery(sql, null);
+        cursor.moveToFirst();
         List<medicine> list = new ArrayList<>();
         if(cursor.getCount() > 0)
         {
@@ -72,19 +74,12 @@ public class MedicineDao extends IMedicineDao {
             for (int i = 0; i < cursor.getCount(); i++) {
 
                 medicine drug = new medicine();
-
                 String medicine_name=cursor.getString(cursor.getColumnIndex(MedicineDataBaseHelper.MEDICINE_NAME));
                 drug.setName(medicine_name);
-
-
                 int dose= cursor.getInt(cursor.getColumnIndex(MedicineDataBaseHelper.DOSE));
-
                 drug.setDose(dose);
-
                 int  repeation=cursor.getInt(cursor.getColumnIndex(MedicineDataBaseHelper.REPEATION));
                 drug.setRepeation(repeation);
-
-
                 String description=cursor.getString(cursor.getColumnIndex(MedicineDataBaseHelper.DESCRIPTION));
                 drug.setDescription(description);
 
@@ -98,13 +93,10 @@ public class MedicineDao extends IMedicineDao {
         cursor.close();
         readableDataBase.close();
         return list;
-
-
     }
 
- //   @Override
+   @Override
     public List<medicine> listMedicine() {
-
 
         SQLiteDatabase readableDataBase =mMedicineDataBaseHelper.getReadableDatabase();
         //查询全部数据
@@ -121,7 +113,6 @@ public class MedicineDao extends IMedicineDao {
                 String medicine_name=cursor.getString(cursor.getColumnIndex(MedicineDataBaseHelper.MEDICINE_NAME));
                 drug.setName(medicine_name);
 
-
                 int dose= cursor.getInt(cursor.getColumnIndex(MedicineDataBaseHelper.DOSE));
 
                 drug.setDose(dose);
@@ -129,53 +120,16 @@ public class MedicineDao extends IMedicineDao {
                 int  repeation=cursor.getInt(cursor.getColumnIndex(MedicineDataBaseHelper.REPEATION));
                 drug.setRepeation(repeation);
 
-
                 String description=cursor.getString(cursor.getColumnIndex(MedicineDataBaseHelper.DESCRIPTION));
                 drug.setDescription(description);
-
 
                 list.add(drug);
                 //移动到下一位
                 cursor.moveToNext();
             }
         }
-
         cursor.close();
         readableDataBase.close();
-
         return list;
-    }
-    public medicine getmedicinebyname(String name){
-        SQLiteDatabase readableDataBase =mMedicineDataBaseHelper.getReadableDatabase();
-        //String queueSql= String.format("select * from %s where%s = %s", MedicineDataBaseHelper.TABLE_NAME_MEDICINE, MedicineDataBaseHelper.MEDICINE_NAME,name);
-        //现在支持以name开头的模糊查找
-        Cursor cursor=readableDataBase.query(MedicineDataBaseHelper.TABLE_NAME_MEDICINE,null,MedicineDataBaseHelper.MEDICINE_NAME+" LIKE ? ",new String[]{"%"+name+"%"},null,null,null);
-
-        medicine drug = new medicine();
-        if(cursor.getCount() > 0)
-        {
-            //移动到首位
-            cursor.moveToFirst();
-            for (int i = 0; i < cursor.getCount(); i++) {
-
-                String medicine_name=cursor.getString(cursor.getColumnIndex(MedicineDataBaseHelper.MEDICINE_NAME));
-                drug.setName(medicine_name);
-                int dose= cursor.getInt(cursor.getColumnIndex(MedicineDataBaseHelper.DOSE));
-                drug.setDose(dose);
-                int  repeation=cursor.getInt(cursor.getColumnIndex(MedicineDataBaseHelper.REPEATION));
-                drug.setRepeation(repeation);
-                String description=cursor.getString(cursor.getColumnIndex(MedicineDataBaseHelper.DESCRIPTION));
-                drug.setDescription(description);
-
-                Log.d("drug",drug.getName());
-                //移动到下一位
-                cursor.moveToNext();
-            }
-        }
-        cursor.close();
-        readableDataBase.close();
-
-        return drug;
-
     }
 }
