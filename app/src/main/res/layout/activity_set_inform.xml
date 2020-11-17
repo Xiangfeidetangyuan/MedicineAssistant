@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -20,68 +20,81 @@
             android:textColor="#000"
             android:textStyle="bold"  />
     </RelativeLayout>
+
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/medicinename_relativelayout1"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/header"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp">
 
         <TextView
+            android:id="@+id/tv1"
             android:layout_width="70dp"
             android:layout_height="60dp"
             android:gravity="center"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+
+
             android:text="药品"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/infrom_name_textview"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:layout_marginStart="140dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginEnd="20dp"
-
+            android:layout_toRightOf="@+id/tv1"
+            android:ems="13"
             android:hint="药名"
             android:inputType="text"
             android:text="喝药" />
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/medicinename_relativelayout2"
+        android:layout_below="@+id/medicinename_relativelayout1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        >
 
         <TextView
+            android:id="@+id/contentLabel"
             android:layout_width="70dp"
             android:layout_height="60dp"
             android:gravity="center"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:text="内容"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/infrom_context_textview"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:layout_marginStart="140dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginEnd="20dp"
+            android:ems="13"
+android:layout_toRightOf="@+id/contentLabel"
+
             android:hint="提醒"
             android:inputType="text"
             android:text="一天3次" />
     </RelativeLayout>
-
+    <TextView
+        android:id="@+id/medicineTimesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="用药重复天数"
+        android:textColor="#3f3f3f"
+        android:textSize="12sp"
+        android:layout_below="@+id/medicinename_relativelayout2"
+        android:layout_marginTop="10dp"
+        android:layout_alignStart="@+id/spinner"
+        />
     <Spinner
         android:id="@+id/spinner"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/medicineTimesLabel"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
@@ -89,30 +102,29 @@
         android:entries="@array/repeation"/>
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/medicinename_relativelayout3"
+        android:layout_below="@+id/spinner"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
         >
 
         <TextView
+            android:id="@+id/morning"
             android:layout_width="70dp"
             android:layout_height="60dp"
-            android:layout_marginTop="20dp"
             android:text="早上"
-            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
             android:gravity="center"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TimePicker
             android:id="@+id/timepicker1"
-            android:layout_width="400dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="140dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginEnd="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_toRightOf="@id/morning"
             android:scaleX="1"
             android:scaleY="1"
             android:timePickerMode="spinner" />
@@ -120,62 +132,58 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/medicinename_relativelayout4"
+        android:layout_below="@+id/medicinename_relativelayout3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
         >
-
         <TextView
             android:id="@+id/time_textview_2"
             android:layout_width="70dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
             android:text="中午"
+            android:layout_centerVertical="true"
+            android:gravity="center"
             android:textSize="18sp"
             android:textStyle="bold" />
 
+
         <TimePicker
             android:id="@+id/timepicker2"
-            android:layout_width="400dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="140dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginEnd="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_toRightOf="@id/time_textview_2"
             android:scaleX="1"
             android:scaleY="1"
             android:timePickerMode="spinner" />
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/medicinename_relativelayout5"
+        android:layout_below="@+id/medicinename_relativelayout4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
        >
 
         <TextView
+            android:id="@+id/evening"
             android:layout_width="70dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
             android:text="晚上"
+            android:layout_centerVertical="true"
+            android:gravity="center"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TimePicker
             android:id="@+id/timepicker3"
-            android:layout_width="400dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="140dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginEnd="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_toRightOf="@id/evening"
             android:scaleX="1"
             android:scaleY="1"
             android:timePickerMode="spinner" />
@@ -183,12 +191,14 @@
 
     <Button
         android:id="@+id/setInfrombutton"
+        android:layout_below="@+id/medicinename_relativelayout5"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFF"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_style"
         android:text="确定" />
 
 
-</LinearLayout>
+</RelativeLayout>
